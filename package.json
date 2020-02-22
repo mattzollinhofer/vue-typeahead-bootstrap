@@ -1,6 +1,6 @@
 {
-  "name": "vue-bootstrap-typeahead",
-  "version": "0.2.6",
+  "name": "vue-typeahead-bootstrap",
+  "version": "1.0.0",
   "private": false,
   "description": "A typeahead/autocomplete component for Vue 2 using Bootstrap 4",
   "keywords": [
@@ -8,19 +8,19 @@
     "autocomplete",
     "bootstrap",
     "bootstrap 4",
+    "omnisearch",
     "typeahead"
   ],
-  "homepage": "https://alexurquhart.github.io/vue-bootstrap-typeahead/",
-  "repository": "github:alexurquhart/vue-bootstrap-typeahead",
+  "homepage": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap"
+  },
   "bugs": {
-    "url": "https://github.com/alexurquhart/vue-bootstrap-typeahead/issues"
+    "url": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap/issues"
   },
   "license": "MIT",
-  "author": {
-    "name": "Alex Urquhart",
-    "email": "alexurquhart@gmail.com",
-    "url": "https://alexurquhart.com"
-  },
+  "author": "Matt Zollinhofer <vue.typeahead.bootstrap@gmail.com>",
   "main": "src/components/VueBootstrapTypeahead.vue",
   "unpkg": "dist/VueBootstrapTypeahead.umd.min.js",
   "scripts": {
@@ -55,5 +55,9 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.17",
     "whatwg-fetch": "^2.0.4"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
   }
 }

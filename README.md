@@ -1,31 +1,26 @@
-# vue-bootstrap-typeahead
-
-[![NPM](https://nodei.co/npm/vue-bootstrap-typeahead.png)](https://www.npmjs.com/package/vue-bootstrap-typeahead)
-
-[![Build Status](https://travis-ci.org/alexurquhart/vue-bootstrap-typeahead.svg?branch=master)](https://travis-ci.org/alexurquhart/vue-bootstrap-typeahead)
-[![Coverage Status](https://coveralls.io/repos/github/alexurquhart/vue-bootstrap-typeahead/badge.svg?branch=master)](https://coveralls.io/github/alexurquhart/vue-bootstrap-typeahead?branch=master)
-[![npm](https://img.shields.io/npm/dm/vue-bootstrap-typeahead.svg)](https://www.npmjs.com/package/vue-bootstrap-typeahead)
-[![GitHub license](https://img.shields.io/github/license/alexurquhart/vue-bootstrap-typeahead.svg)](https://github.com/alexurquhart/vue-bootstrap-typeahead/blob/master/LICENSE.txt)
+# vue-typeahead-bootstrap
 
 A simple `list-group` based typeahead/autocomplete using Bootstrap 4 and Vue 2
 
-<img src="https://raw.githubusercontent.com/alexurquhart/vue-bootstrap-typeahead/master/assets/screenshot.png" alt="Preview image of the vue-bootstrap-typeahead component">
+<img src="https://raw.githubusercontent.com/mattzollinhofer/vue-typeahead-bootstrap/master/assets/screenshot.png" alt="Preview image of the vue-typeahead-bootstrap component">
 
-## [View The Examples](https://alexurquhart.github.io/vue-bootstrap-typeahead/#/examples)
+## [View The Examples](https://alexurquhart.github.io/vue-typeahead-bootstrap/#/examples)
 
 ## Installation
 
 From NPM:
 
+[![NPM](https://nodei.co/npm/vue-typeahead-bootstrap.png)](https://www.npmjs.com/package/vue-typeahead-bootstrap)
+
 ```
-> npm i vue-bootstrap-typeahead --save
+> npm i vue-typeahead-bootstrap --save
 ```
 
 Minified UMD and CommonJS builds are available in the 'dist' folder. The component is also available for use in the browser directly on unpkg:
 
 ```html
-<link href="https://unpkg.com/vue-bootstrap-typeahead/dist/VueBootstrapTypeahead.css" rel="stylesheet">
-<script src="https://unpkg.com/vue-bootstrap-typeahead"></script>
+<link href="https://unpkg.com/vue-typeahead-bootstrap/dist/VueBootstrapTypeahead.css" rel="stylesheet">
+<script src="https://unpkg.com/vue-typeahead-bootstrap"></script>
 ```
 
 ## Usage
@@ -159,14 +154,4 @@ You can also view and edit examples hosted on CodePen [here](https://alexurquhar
 
 ## Contributing
 
-Please note that active development is done on the `Development` branch. PR's are welcome!
-
-## Contributing
-
-Please note that active development is done on the `Development` branch. PR's are welcome!
-
-## Sites using this component
-
-- [plottr.io](https://plottr.io) - Plan and map your running/cycling routes. This component is an offshoot from this project.
-
-Send a pull request to add your site to this list!
+Please note that active development is done on the `master` branch. PR's are welcome!
