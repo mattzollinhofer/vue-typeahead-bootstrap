@@ -13,8 +13,8 @@
           <li>Works well with API JSON responses</li>
         </ul>
         <div class="d-flex justify-content-center">
-          <a href="https://www.npmjs.com/package/vue-bootstrap-typeahead" target="_blank">
-            <img class="mb-3 img-fluid" src="https://nodei.co/npm/vue-bootstrap-typeahead.png" />
+          <a href="https://www.npmjs.com/package/vue-typeahead-bootstrap" target="_blank">
+            <img class="mb-3 img-fluid" src="https://nodei.co/npm/vue-typeahead-bootstrap.png" />
           </a>
         </div>
       </div>
@@ -38,11 +38,11 @@
       <div class="col">
         <h2>Getting Started</h2>
         <p class="lead">Installation</p>
-        <pre v-highlight><code class="bash">$ npm install vue-bootstrap-typeahead --save</code></pre>
+        <pre v-highlight><code class="bash">$ npm install vue-typeahead-bootstrap --save</code></pre>
         <p class="lead">Minified UMD and CommonJS builds are available in the <code>dist</code> folder. The component is also available on unpkg.</p>
         <pre v-highlight><code class="html">
-&lt;link href="https://unpkg.com/vue-bootstrap-typeahead/dist/VueBootstrapTypeahead.css" rel="stylesheet"&gt;
-&lt;script src="https://unpkg.com/vue-bootstrap-typeahead"&gt;&lt;/script&gt;</code></pre>
+&lt;link href="https://unpkg.com/vue-typeahead-bootstrap/dist/VueBootstrapTypeahead.css" rel="stylesheet"&gt;
+&lt;script src="https://unpkg.com/vue-typeahead-bootstrap"&gt;&lt;/script&gt;</code></pre>
 
         <p class="lead">Registration</p>
 <pre v-highlight>

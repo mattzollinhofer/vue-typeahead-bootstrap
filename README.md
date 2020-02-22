@@ -4,7 +4,7 @@ A simple `list-group` based typeahead/autocomplete using Bootstrap 4 and Vue 2
 
 <img src="https://raw.githubusercontent.com/mattzollinhofer/vue-typeahead-bootstrap/master/assets/screenshot.png" alt="Preview image of the vue-typeahead-bootstrap component">
 
-## [View The Examples](https://alexurquhart.github.io/vue-typeahead-bootstrap/#/examples)
+## [View The Examples](https://mattzollinhofer.github.io/vue-typeahead-bootstrap/#/examples)
 
 ## Installation
 
@@ -150,7 +150,7 @@ for the suggestion `list-item`'s
 
 Clone this repository and run `npm run serve` and navigate to http://localhost:8080 to launch the documentation. The source is in `src/views/Home.vue`
 
-You can also view and edit examples hosted on CodePen [here](https://alexurquhart.github.io/vue-bootstrap-typeahead/#/examples)
+You can also view and edit examples hosted on CodePen [here](https://mattzollinhofer.github.io/vue-typeahead-bootstrap/#/examples)
 
 ## Contributing
 
