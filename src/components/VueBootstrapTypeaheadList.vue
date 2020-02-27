@@ -8,6 +8,7 @@
       :background-variant="backgroundVariant"
       :text-variant="textVariant"
       @click.native="handleHit(item, $event)"
+      v-on="$listeners"
     >
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
@@ -151,6 +152,9 @@ export default {
   },
   watch: {
     activeListItem(newValue, oldValue) {
+      if (this.$parent.isFocused==false){
+        this.$parent.isFocused = true
+      }
       if (newValue >= 0) {
         const scrollContainer = this.$refs.suggestionList
         const listItem = scrollContainer.children[this.activeListItem]
@@ -164,6 +168,7 @@ export default {
         } else {
           scrollContainer.scrollTop = 0
         }
+        listItem.focus()
       }
     }
   }

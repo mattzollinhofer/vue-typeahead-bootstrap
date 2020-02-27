@@ -1,5 +1,11 @@
 <template>
   <a
+    @keydown.tab="$emit('listItemBlur')"
+    @keydown.esc.stop.prevent="$emit('listItemBlur')"
+    @keydown.down.prevent
+    @keydown.up.prevent
+    @keyup.down="$parent.selectNextListItem($event)"
+    @keyup.up="$parent.selectPreviousListItem($event)"
     tabindex="0"
     href="#"
     :class="textClasses"
@@ -33,7 +39,6 @@ export default {
   computed: {
     textClasses() {
       const classes = ['vbst-item', 'list-group-item', 'list-group-item-action']
-      if (this.active) classes.push('active')
       if (this.backgroundVariant) classes.push(`bg-${this.backgroundVariant}`)
       if (this.textVariant) classes.push(`text-${this.textVariant}`)
       return classes.join(' ')
