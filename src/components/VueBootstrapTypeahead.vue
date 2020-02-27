@@ -16,6 +16,7 @@
         @focus="isFocused = true"
         @blur="handleBlur"
         @input="handleInput($event.target.value)"
+        @keyup.esc="handleEsc($event.target.value)"
         @keyup.down="$emit('keyup.down', $event.target.value)"
         @keyup.up="$emit('keyup.up', $event.target.value)"
         @keyup.enter="$emit('keyup.enter', $event.target.value)"
@@ -40,6 +41,7 @@
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"
       @hit="handleHit"
+      @listItemBlur="handleChildBlur"
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -156,6 +158,11 @@ export default {
       this.isFocused = false
     },
 
+    handleChildBlur() {
+      this.$refs.input.focus();
+      this.isFocused=false;
+    },
+
     handleBlur(evt) {
       const tgt = evt.relatedTarget
       if (tgt && tgt.classList.contains('vbst-item')) {
@@ -165,11 +172,20 @@ export default {
     },
 
     handleInput(newValue) {
+      this.isFocused = true
       this.inputValue = newValue
 
       // If v-model is being used, emit an input event
       if (typeof this.value !== 'undefined') {
         this.$emit('input', newValue)
+      }
+    },
+
+    handleEsc(inputValue){
+      if(inputValue===""){
+        this.isFocused=false;
+      } else {
+        this.inputValue=''
       }
     }
   },
