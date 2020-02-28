@@ -48,6 +48,9 @@ export default {
     backgroundVariant: {
       type: String
     },
+    disableSort: {
+      type: Boolean
+    },
     textVariant: {
       type: String
     },
@@ -109,6 +112,8 @@ export default {
       return this.data
         .filter(i => i.text.match(re) !== null)
         .sort((a, b) => {
+          if(this.disableSort) return 0;
+
           const aIndex = a.text.indexOf(a.text.match(re)[0])
           const bIndex = b.text.indexOf(b.text.match(re)[0])
 

@@ -105,6 +105,7 @@ export default {
 Name | Type | Default | Description
 --- | --- | --- | ---
 data | `Array` | | Array of data to be available for querying. **Required**
+disableSort | `Boolean` | false | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.
 serializer | `Function` | `input => input` | Function used to convert the entries in the `data` array into a text string.
 size | `String` | | Size of the `input-group`. Valid values: `sm` or `lg`
 backgroundVariant | `String` | | Background color for the autocomplete result `list-group` items. [See valid values](http://getbootstrap.com/docs/4.1/utilities/colors/#background-color)

@@ -38,6 +38,7 @@
       :text-variant="textVariant"
       :maxMatches="maxMatches"
       :minMatchingChars="minMatchingChars"
+      :disableSort="disableSort"
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"
       @hit="handleHit"
@@ -98,6 +99,10 @@ export default {
     minMatchingChars: {
       type: Number,
       default: 2
+    },
+    disableSort: {
+      type: Boolean,
+      default: false
     },
     showOnFocus: {
       type: Boolean,
