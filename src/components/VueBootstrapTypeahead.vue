@@ -227,6 +227,7 @@ export default {
     padding-top: 5px;
     position: absolute;
     max-height: 350px;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow-y: auto;
     z-index: 999;
   }
