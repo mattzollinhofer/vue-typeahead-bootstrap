@@ -144,11 +144,11 @@ export default {
       if (this.activeListItem < this.matchedItems.length - 1) {
         this.activeListItem++
       } else {
-        this.activeListItem = -1
+        this.activeListItem = 0
       }
     },
     selectPreviousListItem() {
-      if (this.activeListItem < 0) {
+      if (this.activeListItem <= 0) {
         this.activeListItem = this.matchedItems.length - 1
       } else {
         this.activeListItem--
