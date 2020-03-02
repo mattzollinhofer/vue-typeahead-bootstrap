@@ -1,3 +1,6 @@
+## 1.0.3 - 2 Mar 2020
+- Allow up/down arrow keys to wrap without an extra key push.
+
 ## 1.0.2 - 1 Mar 2020
 - Added `disableSort`. No sorting occurs and the list is presented to the user as it is given to the component.
 - Fix IE 11 display issue. Fixes issue listed here:
