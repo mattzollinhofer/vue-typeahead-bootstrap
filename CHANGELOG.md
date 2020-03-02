@@ -1,3 +1,21 @@
+## 1.0.2 - 1 Mar 2020
+- Added `disableSort`. No sorting occurs and the list is presented to the user as it is given to the component.
+- Fix IE 11 display issue. Fixes issue listed here:
+    https://github.com/alexurquhart/vue-bootstrap-typeahead/issues/2#issuecomment-418142023
+
+## 1.0.1 - 22 Feb 2020
+- Add documentation.
+
+## 1.0.0 - 22 Feb 2020
+- Restarted maintenance of this project. Needed to rename because I was unable to contact the original
+  developer.
+
+Merge PRs from previous repo:
+- Keyboard support for arrow keys
+- Added `showOnFocus`. Show results as soon as the input gains focus before the user has typed anything.
+- Added `showAllResults`. Show all results even ones that highlighting doesn't match.
+- Initialize input field correctly
+
 ## 0.1.2 - 28 Aug 2018
 - Fixed #3 & #4
 
