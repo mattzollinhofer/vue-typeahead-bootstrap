@@ -20,7 +20,7 @@
 export default {
   name: 'VueBootstrapTypeaheadListItem',
 
-    props: {
+  props: {
     active: {
       type: Boolean
     },
