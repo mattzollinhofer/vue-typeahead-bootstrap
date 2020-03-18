@@ -164,8 +164,8 @@ export default {
     },
 
     handleChildBlur() {
-      this.$refs.input.focus();
-      this.isFocused=false;
+      this.$refs.input.focus()
+      this.isFocused = false
     },
 
     handleBlur(evt) {
@@ -186,11 +186,11 @@ export default {
       }
     },
 
-    handleEsc(inputValue){
-      if(inputValue===""){
-        this.isFocused=false;
+    handleEsc(inputValue) {
+      if (inputValue === '') {
+        this.isFocused = false
       } else {
-        this.inputValue=''
+        this.inputValue = ''
       }
     }
   },
@@ -216,7 +216,7 @@ export default {
 
   watch: {
     value: function(val) {
-        this.inputValue = val;
+      this.inputValue = val
     }
   }
 }

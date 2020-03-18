@@ -106,13 +106,13 @@ export default {
         return []
       }
 
-      const re = new RegExp(this.showAllResults ? "" : this.escapedQuery, 'gi')
+      const re = new RegExp(this.showAllResults ? '' : this.escapedQuery, 'gi')
 
       // Filter, sort, and concat
       return this.data
         .filter(i => i.text.match(re) !== null)
         .sort((a, b) => {
-          if(this.disableSort) return 0;
+          if (this.disableSort) return 0
 
           const aIndex = a.text.indexOf(a.text.match(re)[0])
           const bIndex = b.text.indexOf(b.text.match(re)[0])
@@ -157,7 +157,7 @@ export default {
   },
   watch: {
     activeListItem(newValue, oldValue) {
-      if (this.$parent.isFocused==false){
+      if (this.$parent.isFocused === false) {
         this.$parent.isFocused = true
       }
       if (newValue >= 0) {
