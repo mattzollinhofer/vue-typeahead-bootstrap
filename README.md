@@ -65,7 +65,7 @@ The typeahead does not fetch any data, for maximum flexibility it will only work
     :serializer="s => s.text"
     placeholder="Type an address..."
     @hit="selectedAddress = $event"
-  >
+  />
 </template>
 
 <script>
