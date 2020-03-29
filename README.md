@@ -123,6 +123,7 @@ Name | Description
 --- | ---
 `hit` | Triggered when an autocomplete item is selected. The entry in the input `data` array that was selected is returned.
 `input` | The component can be used with `v-model`
+`focus` | Triggered focus event trigered on `input` element.
 
 ### Slots
 
