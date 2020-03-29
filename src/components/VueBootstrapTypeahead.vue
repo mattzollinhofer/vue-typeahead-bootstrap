@@ -9,6 +9,7 @@
       <input
         ref="input"
         type="search"
+        :id="id"
         :class="`form-control ${inputClass}`"
         :placeholder="placeholder"
         :aria-label="placeholder"
@@ -114,7 +115,8 @@ export default {
     },
     placeholder: String,
     prepend: String,
-    append: String
+    append: String,
+    id: String
   },
 
   computed: {
