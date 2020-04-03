@@ -43,6 +43,7 @@
       :showAllResults="showAllResults"
       @hit="handleHit"
       @listItemBlur="handleChildBlur"
+      :highlightClass='highlightClass'
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -114,7 +115,11 @@ export default {
     },
     placeholder: String,
     prepend: String,
-    append: String
+    append: String,
+    highlightClass: {
+      type: String,
+      default: ''
+    }
   },
 
   computed: {

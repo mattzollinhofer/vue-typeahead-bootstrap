@@ -69,6 +69,10 @@ export default {
     showAllResults: {
       type: Boolean,
       default: false
+    },
+    highlightClass: {
+      type: String,
+      default: ''
     }
   },
 
@@ -92,8 +96,8 @@ export default {
           return text
         }
         const re = new RegExp(this.escapedQuery, 'gi')
-
-        return text.replace(re, `<strong>$&</strong>`)
+        const style = this.highlightClass === '' ? `style='font-weight: bold;'` : `class='${this.highlightClass}'`
+        return text.replace(re, `<span ${style}>$&</span>`)
       }
     },
 
