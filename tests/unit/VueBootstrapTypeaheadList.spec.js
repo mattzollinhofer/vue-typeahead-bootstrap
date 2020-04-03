@@ -74,10 +74,18 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.findAll(VueBootstrapTypeaheadListItem).length).toBe(3)
   })
 
-  it('Highlights text matches properly', () => {
+  it('Highlights text matches properly by default', () => {
     wrapper.setProps({
       query: 'Canada'
     })
-    expect(wrapper.find(VueBootstrapTypeaheadListItem).vm.htmlText).toBe('<strong>Canada</strong>')
+    expect(wrapper.find(VueBootstrapTypeaheadListItem).vm.htmlText).toBe(`<span style='font-weight: bold;'>Canada</span>`)
+  })
+
+  it('Highlights text matches properly with highlightClass prop', () => {
+    wrapper.setProps({
+      query: 'Canada',
+      highlightClass: 'myStyle'
+    })
+    expect(wrapper.find(VueBootstrapTypeaheadListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
   })
 })
