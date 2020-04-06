@@ -72,7 +72,7 @@ export default {
     },
     highlightClass: {
       type: String,
-      default: ''
+      default: 'vbt-matched-text'
     }
   },
 
@@ -96,8 +96,7 @@ export default {
           return text
         }
         const re = new RegExp(this.escapedQuery, 'gi')
-        const style = this.highlightClass === '' ? `style='font-weight: bold;'` : `class='${this.highlightClass}'`
-        return text.replace(re, `<span ${style}>$&</span>`)
+        return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
       }
     },
 
