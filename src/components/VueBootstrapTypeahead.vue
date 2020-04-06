@@ -116,10 +116,7 @@ export default {
     placeholder: String,
     prepend: String,
     append: String,
-    highlightClass: {
-      type: String,
-      default: ''
-    }
+    highlightClass: String
   },
 
   computed: {
@@ -235,5 +232,8 @@ export default {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow-y: auto;
     z-index: 999;
+  }
+  .vbt-autcomplete-list >>> .vbt-matched-text{
+    font-weight: bold;
   }
 </style>

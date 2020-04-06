@@ -78,7 +78,7 @@ describe('VueBootstrapTypeaheadList', () => {
     wrapper.setProps({
       query: 'Canada'
     })
-    expect(wrapper.find(VueBootstrapTypeaheadListItem).vm.htmlText).toBe(`<span style='font-weight: bold;'>Canada</span>`)
+    expect(wrapper.find(VueBootstrapTypeaheadListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
   it('Highlights text matches properly with highlightClass prop', () => {
