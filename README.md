@@ -117,12 +117,14 @@ showOnFocus | `Boolean` | false | Show results as soon as the input gains focus 
 showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 prepend | `String` | | Text to be prepended to the `input-group`
 append | `String` | | Text to be appended to the `input-group`
+id | `String` | Id for `input` element
 
 ### Events
 Name | Description
 --- | ---
 `hit` | Triggered when an autocomplete item is selected. The entry in the input `data` array that was selected is returned.
 `input` | The component can be used with `v-model`
+`focus` | Triggered focus event trigered on `input` element.
 
 ### Slots
 

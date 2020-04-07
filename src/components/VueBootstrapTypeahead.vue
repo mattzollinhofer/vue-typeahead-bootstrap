@@ -9,11 +9,12 @@
       <input
         ref="input"
         type="search"
+        :id="id"
         :class="`form-control ${inputClass}`"
         :placeholder="placeholder"
         :aria-label="placeholder"
         :value="inputValue"
-        @focus="isFocused = true"
+        @focus="handleFocus"
         @blur="handleBlur"
         @input="handleInput($event.target.value)"
         @keyup.esc="handleEsc($event.target.value)"
@@ -114,7 +115,8 @@ export default {
     },
     placeholder: String,
     prepend: String,
-    append: String
+    append: String,
+    id: String
   },
 
   computed: {
@@ -150,6 +152,11 @@ export default {
         const prependRect = this.$refs.prependDiv.getBoundingClientRect()
         listStyle.marginLeft = prependRect.width + 'px'
       }
+    },
+
+    handleFocus() {
+      this.$emit('focus')
+      this.isFocused = true
     },
 
     handleHit(evt) {
