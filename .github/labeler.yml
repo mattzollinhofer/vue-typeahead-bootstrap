@@ -1,7 +1,0 @@
-testing:
-  - 'tests/**'
-updates:
-  - 'package.json'
-  - 'package-lock.json'
-documentation:
-  - '**/*.md'
