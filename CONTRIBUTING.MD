@@ -1,19 +1,19 @@
-# Contributing to vue-typeahead-bootstrap
+# Contributing to vue-typeahead-bootstrau
 
-We love pull requests from everyone. By participating in this project, you
-agree to abide by the [code of conduct]. We are not necessarily experts in vue,
+We love pull requests from everyone. We are not necessarily experts in vue,
 typeaheads, bootstrap, or anything else. We're just here to try and provide a useful
-tool!
+tool! So feel free to jump in too.
+
+By participating in this project, you agree to abide by the [code of conduct].
 
 [code of conduct]: https://github.com/mattzollinhofer/vue-typeahead-bootstrap/CODE_OF_CONDUCT.md
 
-Here are some ways **you** can contribute:
-
+Here are some ways you can contribute:
 * by reporting bugs
 * by suggesting new features
 * by writing or editing documentation
 * by writing examples
-* by writing code ( **no patch is too small** : fix typos, add comments, clean up inconsistent whitespace )
+* by writing code (**no patch is too small** : fix typos, add comments, clean up inconsistent whitespace)
 * by refactoring code
 * by discussing or closing [issues][]
 * by reviewing [pull requests][]
@@ -23,14 +23,27 @@ Here are some ways **you** can contribute:
 
 ## Submitting an Issue
 
-* We use the [GitHub issue tracker][issues] to track bugs and features.
+If you find a bug with this component please let us know! If you have an enhancement that
+you believe would be helpful to the community, let us know!.
+
+We use the [GitHub issue tracker][issues] to track bugs and features.
+
 * Before submitting a bug report or feature request, check to make sure it hasn't
-already been submitted by searching for it.
+  already been submitted by searching for it.
 * When submitting a bug report, please include detail! A [gist][] that includes a stack trace and any
-  details that may be necessary to reproduce the bug. Ideally, a bug report
-  should include a pull request with failing tests.
+  details that may be necessary to reproduce the bug.
+* If you have an enhancement, please provide details about the situations you would use it.
+  Additionally, provide other use cases you think would be good uses.
+* Ideally, a bug report will include a pull request with failing tests, but we know not everyone can
+  come with that level of technicality.
 
 [gist]: https://gist.github.com/
+
+### Not a Helpdesk
+We wish would could help with everything, but our goal is to help build a tool and provide
+it as value to the larger community. If you have specific issues with your setup and/or
+configuration [stackoverflow](https://stackoverflow.com) is the more appropriate place for
+that kind of question.
 
 ## Cleaning up issues
 
