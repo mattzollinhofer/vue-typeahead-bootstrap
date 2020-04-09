@@ -1,4 +1,4 @@
-# Contributing to Factory Bot
+# Contributing to vue-typeahead-bootstrap
 
 We love pull requests from everyone. By participating in this project, you
 agree to abide by the [code of conduct]. We are not necessarily experts in vue,
