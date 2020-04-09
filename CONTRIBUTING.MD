@@ -91,11 +91,13 @@ Further paragraphs come after blank lines.
 - Use a hanging indent
 ```
 
-## Notes
-* Please add tests if you changed code. Contributions without tests won't be accepted.
-* If you don't know how to add tests, please put in a PR and leave a comment
-  asking for help. We love helping!
-* Please don't update the Gem version.
+### Expectations
+* Great commit hygiene.
+* Updated CHANGELOG.md
+* Tests. Please add tests if you changed code. Contributions without tests won't be accepted.
+  * If you don't know how to add tests, please put in a PR and leave a comment
+    asking for help. We love helping!
+* Please *don't update* the package.json version, we'll do that when it gets released.
 
 [repo]: https://github.com/mattzollinhofer/vue-typeahead-bootstrap
 [fork]: https://help.github.com/articles/fork-a-repo/
