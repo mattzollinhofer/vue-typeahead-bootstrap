@@ -69,6 +69,10 @@ export default {
     showAllResults: {
       type: Boolean,
       default: false
+    },
+    highlightClass: {
+      type: String,
+      default: 'vbt-matched-text'
     }
   },
 
@@ -92,8 +96,7 @@ export default {
           return text
         }
         const re = new RegExp(this.escapedQuery, 'gi')
-
-        return text.replace(re, `<strong>$&</strong>`)
+        return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
       }
     },
 
