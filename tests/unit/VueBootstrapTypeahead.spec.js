@@ -48,11 +48,10 @@ describe('VueBootstrapTypeahead', () => {
     expect(wrapper.vm.formattedData[0].text).toBe('Canada')
   })
 
-  it('Show the list when given a query and focused', () => {
+  it('Show the list when given a query', () => {
     let child = wrapper.find(VueBootstrapTypeaheadList)
-    wrapper.find('input').setValue('Can')
     expect(child.isVisible()).toBe(false)
-    wrapper.find('input').trigger('focus')
+    wrapper.find('input').setValue('Can')
     expect(child.isVisible()).toBe(true)
   })
 

@@ -65,7 +65,7 @@ The typeahead does not fetch any data, for maximum flexibility it will only work
     :serializer="s => s.text"
     placeholder="Type an address..."
     @hit="selectedAddress = $event"
-  >
+  />
 </template>
 
 <script>
@@ -117,6 +117,7 @@ showOnFocus | `Boolean` | false | Show results as soon as the input gains focus 
 showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 prepend | `String` | | Text to be prepended to the `input-group`
 append | `String` | | Text to be appended to the `input-group`
+highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text 
 
 ### Events
 Name | Description

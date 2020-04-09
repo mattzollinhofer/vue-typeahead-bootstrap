@@ -43,6 +43,7 @@
       :showAllResults="showAllResults"
       @hit="handleHit"
       @listItemBlur="handleChildBlur"
+      :highlightClass='highlightClass'
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -114,7 +115,8 @@ export default {
     },
     placeholder: String,
     prepend: String,
-    append: String
+    append: String,
+    highlightClass: String
   },
 
   computed: {
@@ -164,8 +166,8 @@ export default {
     },
 
     handleChildBlur() {
-      this.$refs.input.focus();
-      this.isFocused=false;
+      this.$refs.input.focus()
+      this.isFocused = false
     },
 
     handleBlur(evt) {
@@ -186,11 +188,11 @@ export default {
       }
     },
 
-    handleEsc(inputValue){
-      if(inputValue===""){
-        this.isFocused=false;
+    handleEsc(inputValue) {
+      if (inputValue === '') {
+        this.isFocused = false
       } else {
-        this.inputValue=''
+        this.inputValue = ''
       }
     }
   },
@@ -216,7 +218,7 @@ export default {
 
   watch: {
     value: function(val) {
-        this.inputValue = val;
+      this.inputValue = val
     }
   }
 }
@@ -230,5 +232,8 @@ export default {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow-y: auto;
     z-index: 999;
+  }
+  .vbt-autcomplete-list >>> .vbt-matched-text{
+    font-weight: bold;
   }
 </style>

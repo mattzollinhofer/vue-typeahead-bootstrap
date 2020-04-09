@@ -69,6 +69,10 @@ export default {
     showAllResults: {
       type: Boolean,
       default: false
+    },
+    highlightClass: {
+      type: String,
+      default: 'vbt-matched-text'
     }
   },
 
@@ -92,8 +96,7 @@ export default {
           return text
         }
         const re = new RegExp(this.escapedQuery, 'gi')
-
-        return text.replace(re, `<strong>$&</strong>`)
+        return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
       }
     },
 
@@ -106,13 +109,13 @@ export default {
         return []
       }
 
-      const re = new RegExp(this.showAllResults ? "" : this.escapedQuery, 'gi')
+      const re = new RegExp(this.showAllResults ? '' : this.escapedQuery, 'gi')
 
       // Filter, sort, and concat
       return this.data
         .filter(i => i.text.match(re) !== null)
         .sort((a, b) => {
-          if(this.disableSort) return 0;
+          if (this.disableSort) return 0
 
           const aIndex = a.text.indexOf(a.text.match(re)[0])
           const bIndex = b.text.indexOf(b.text.match(re)[0])
@@ -144,11 +147,11 @@ export default {
       if (this.activeListItem < this.matchedItems.length - 1) {
         this.activeListItem++
       } else {
-        this.activeListItem = -1
+        this.activeListItem = 0
       }
     },
     selectPreviousListItem() {
-      if (this.activeListItem < 0) {
+      if (this.activeListItem <= 0) {
         this.activeListItem = this.matchedItems.length - 1
       } else {
         this.activeListItem--
