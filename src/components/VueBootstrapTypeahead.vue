@@ -190,6 +190,7 @@ export default {
 
     handleEsc(inputValue) {
       if (inputValue === '') {
+        this.$refs.input.blur()
         this.isFocused = false
       } else {
         this.inputValue = ''
