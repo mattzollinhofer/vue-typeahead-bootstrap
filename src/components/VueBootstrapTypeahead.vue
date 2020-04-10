@@ -16,7 +16,7 @@
         @focus="isFocused = true"
         @blur="handleBlur"
         @input="handleInput($event.target.value)"
-        @keyup.esc="handleEsc($event.target.value)"
+        @keydown.esc="handleEsc($event.target.value)"
         @keyup.down="$emit('keyup.down', $event.target.value)"
         @keyup.up="$emit('keyup.up', $event.target.value)"
         @keyup.enter="$emit('keyup.enter', $event.target.value)"
