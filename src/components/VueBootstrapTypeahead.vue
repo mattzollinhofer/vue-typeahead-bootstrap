@@ -113,6 +113,10 @@ export default {
       type: Boolean,
       default: false
     },
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
     placeholder: String,
     prepend: String,
     append: String,
@@ -161,8 +165,11 @@ export default {
 
       this.inputValue = evt.text
       this.$emit('hit', evt.data)
-      this.$refs.input.blur()
-      this.isFocused = false
+
+      if (this.autoClose) {
+        this.$refs.input.blur()
+        this.isFocused = false
+      }
     },
 
     handleChildBlur() {

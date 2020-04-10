@@ -114,6 +114,7 @@ inputClass | `String` | | Class to the added to the `input` tag for validation, 
 maxMatches | `Number` | 10 | Maximum amount of list items to appear.
 minMatchingChars | `Number` | 2 | Minimum matching characters in query before the typeahead list appears
 showOnFocus | `Boolean` | false | Show results as soon as the input gains focus before the user has typed anything.
+autoClose | `Boolean` | true | Whether the autocomplete should hide upon item selection
 showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 prepend | `String` | | Text to be prepended to the `input-group`
 append | `String` | | Text to be appended to the `input-group`
