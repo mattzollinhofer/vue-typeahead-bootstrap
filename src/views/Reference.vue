@@ -64,6 +64,20 @@
                 <td>Minimum matching characters in query before the typeahead list appears</td>
               </tr>
               <tr>
+              <tr>
+                <td><code>showOnFocus</code></td>
+                <td>Boolean</td>
+                <td>false</td>
+                <td>Show results as soon as the input gains focus before the user has typed anything</td>
+              </tr>
+              <tr>
+              <tr>
+                <td><code>autoClose</code></td>
+                <td>Boolean</td>
+                <td>true</td>
+                <td>Whether the autocomplete should hide upon item selection</td>
+              </tr>
+              <tr>
                 <td><code>prepend</code></td>
                 <td>String</td>
                 <td></td>

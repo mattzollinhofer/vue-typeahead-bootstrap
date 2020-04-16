@@ -160,7 +160,7 @@ export default {
   },
   watch: {
     activeListItem(newValue, oldValue) {
-      if (this.$parent.isFocused === false) {
+      if (!this.$parent.autoClose && this.$parent.isFocused === false) {
         this.$parent.isFocused = true
       }
       if (newValue >= 0) {
