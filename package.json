@@ -28,7 +28,7 @@
     "build": "vue-cli-service build --target lib --name VueBootstrapTypeahead src/components/VueBootstrapTypeahead.vue",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "deploy.sh",
+    "docs:deploy": "./deploy.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit --coverage"
   },
