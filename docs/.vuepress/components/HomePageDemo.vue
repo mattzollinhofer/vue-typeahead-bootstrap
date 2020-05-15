@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="demo">
     Options: `Canada, United States, Mexico`,
     <vue-bootstrap-typehead
       :data="['Canada', 'United States', 'Mexico']"
@@ -27,4 +27,7 @@
 
 <style lang="scss">
   @import 'bootstrap/scss/bootstrap.scss';
+  .demo{
+    min-height: 400px
+  }
 </style>
