@@ -4,18 +4,21 @@
 
 | Name | type | Default | Description |
 | ---- |:----:| ------------- | ---- |
+| append | String | | Text to be appended to the `input-group`
+| autoClose | `Boolean` | true | Whether the autocomplete should hide upon item selection
+| backgroundVariant | String | | Background color for the autocomplete result `list-group` items. [See values here.][1]
 | data | Array | | Array of data to be available for querying. **Required**|
+| disableSort | `Boolean` | false | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.
+| highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text
+| inputClass | String | | Class to be added to the `input` tag for validation, etc.
+| maxMatches | Number | 10 | Maximum amount of list items to appear.
+| minMatchingChars | Number | 2 | Minimum matching characters in query before the typeahead list appears
+| prepend | String | | Text to be prepended to the `input-group`
 | serializer | Function | `input => input`| Function used to convert the entries in the data array into a text string. |
+| showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
+| showOnFocus | `Boolean` | false | Show results as soon as the input gains focus before the user has typed anything.
 | size | String | | Size of the `input-group`. Valid values: `sm` or `lg` |
-backgroundVariant | String | | Background color for the autocomplete result `list-group` items. [See values here.][1]
-textVariant | String | | Text color for autocomplete result `list-group` items. [See values here.][2]
-inputClass | String | | Class to be added to the `input` tag for validation, etc.
-maxMatches | Number | 10 | Maximum amount of list items to appear.
-minMatchingChars | Number | 2 | Minimum matching characters in query before the typeahead list appears
-prepend | String | | Text to be prepended to the `input-group`
-append | String | | Text to be appended to the `input-group`
-autoClose | `Boolean` | true | Whether the autocomplete should hide upon item selection
-highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text
+| textVariant | String | | Text color for autocomplete result `list-group` items. [See values here.][2]
 
 ## Events
 
