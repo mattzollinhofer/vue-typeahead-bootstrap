@@ -1,3 +1,6 @@
+## Unreleased
+- Emit events that users can act on. TODO: flesh this out
+
 ## 1.0.3 - 2 Mar 2020
 - Allow up/down arrow keys to wrap without an extra key push.
 
