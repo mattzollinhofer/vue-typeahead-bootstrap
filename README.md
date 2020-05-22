@@ -12,6 +12,11 @@ Here are some live examples, [give them a try here.](https://mattzollinhofer.git
 ## Documentation
 [Docs are here.](https://mattzollinhofer.github.io/vue-typeahead-bootstrap-docs/)
 
+## 2.0 Release - Migration Necessary
+If you were using a version prior to 2.0, you'll need to change all references of `vue-bootstrap-typeahead` to `vue-typeahead-bootstrap` and of `VueBootstrapTypeahead` to `VueTypeaheadBootstrap`.
+
+The original project lost it's maintainer and we picked it up to keep it moving. [More info here if you're interested.](https://github.com/alexurquhart/vue-bootstrap-typeahead/issues/60)
+
 ## Local Examples/Demo
 Clone this repository and run `vuepress dev docs`. Then, navigate to http://localhost:8080/vue-typeahead-bootstrap-docs/ to launch the documentation and examples. The source is in `docs/README.md` and `docs/.vuepress`
 

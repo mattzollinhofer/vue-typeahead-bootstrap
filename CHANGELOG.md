@@ -1,3 +1,6 @@
+## 2.0.1 - 22 May 2020
+- Add migration instructions
+
 ## 2.0.0 - 22 May 2020
 - Breaking change: Rename this component fully. To continue using this component, you'll need to change all
   your usages from `vue-bootstrap-typeahead` to `vue-typeahead-bootstrap`.
