@@ -8,6 +8,8 @@ module.exports = {
         text: 'Guide', link: '/guide/gettingStarted',
       }, {
         text: 'Examples', link: '/examples/examples'
+      }, {
+        text: 'Github', link: 'https://github.com/mattzollinhofer/vue-typeahead-bootstrap/'
       }
     ],
     sidebar: [
