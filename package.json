@@ -1,6 +1,6 @@
 {
   "name": "vue-typeahead-bootstrap",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "private": false,
   "description": "A typeahead/autocomplete component for Vue 2 using Bootstrap 4",
   "keywords": [
@@ -21,11 +21,10 @@
   },
   "license": "MIT",
   "author": "Matt Zollinhofer <vue.typeahead.bootstrap@gmail.com>",
-  "main": "src/components/VueBootstrapTypeahead.vue",
-  "unpkg": "dist/VueBootstrapTypeahead.umd.min.js",
+  "main": "src/components/VueTypeaheadBootstrap.vue",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name VueBootstrapTypeahead src/components/VueBootstrapTypeahead.vue",
+    "build": "vue-cli-service build --target lib --name VueTypeaheadBootstrap src/components/VueTypeaheadBootstrap.vue",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:deploy": "./deploy.sh",

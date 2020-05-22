@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VueBootstrapTypehead
+    <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -15,18 +15,18 @@
           Search
         </button>
       </template>
-    </VueBootstrapTypehead>
+    </vue-typeahead-bootstrap>
   </div>
 </template>
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueBootstrapTypehead from "../../../src/components/VueBootstrapTypeahead";
+  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
   import {debounce} from 'lodash'
 
   export default {
     name: "PendingAppendingExample",
-    components: {VueBootstrapTypehead},
+    components: {VueTypeaheadBootstrap},
     data(){
       return {
         query: '',

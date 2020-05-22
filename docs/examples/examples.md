@@ -7,7 +7,7 @@
 <template>
   <div>
     Options: `Canada, United States, Mexico`,
-    <vue-bootstrap-typehead
+    <vue-typehead-bootstrap
       :data="['Canada', 'United States', 'Mexico']"
       v-model="query"
       placeholder="Choose a country"
@@ -33,7 +33,7 @@
 ```vue
 <template>
   <div>
-      <vue-bootstrap-typehead
+      <vue-typehead-bootstrap
         class="mb-4"
         v-model="query"
         :data="users"
@@ -80,7 +80,7 @@
 ```vue
 <template>
   <div>
-    <VueBootstrapTypehead
+    <VueTypeaheadBootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -95,7 +95,7 @@
           Search
         </button>
       </template>
-    </VueBootstrapTypehead>
+    </VueTypeaheadBootstrap>
   </div>
 </template>
 
@@ -131,7 +131,7 @@
 ```vue
 <template>
   <div>
-    <vue-bootstrap-typehead
+    <vue-typehead-bootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -153,7 +153,7 @@
           <i class="ml-auto fab fa-github-square fa-2x"></i>
         </div>
       </template>
-    </vue-bootstrap-typehead>
+    </vue-typehead-bootstrap>
     Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
   </div>
 </template>

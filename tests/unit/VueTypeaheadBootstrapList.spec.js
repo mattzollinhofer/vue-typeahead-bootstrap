@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
 import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem.vue'
 
-describe('VueTypeaheadBootstrapList', () => {
+describe('VueBootstrapTypeaheadList', () => {
   let wrapper
 
   const demoData = [

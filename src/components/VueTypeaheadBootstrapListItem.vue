@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'VueBootstrapTypeaheadListItem',
+  name: 'VueTypeaheadBootstrapListItem',
 
   props: {
     active: {

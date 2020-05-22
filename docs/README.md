@@ -15,4 +15,13 @@ features:
 
 ## Try It Out
 
-<HomePageDemo/>
+<HomePageDemo class='homepage-demo'/>
+
+<style lang='scss'>
+  .app .home{
+    padding-top: 0px;
+  }
+  .homepage-demo{
+    min-height: 400px
+  }
+</style>

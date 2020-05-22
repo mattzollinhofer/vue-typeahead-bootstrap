@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import VueBootstrapTypeaheadListItem from '@/components/VueBootstrapTypeaheadListItem.vue'
+import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem.vue'
 
-describe('VueBootstrapTypeaheadListItem.vue', () => {
+describe('VueTypeaheadBootstrapListItem.vue', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallowMount(VueBootstrapTypeaheadListItem)
+    wrapper = shallowMount(VueTypeaheadBootstrapListItem)
   })
 
   it('Mounts and renders an <a> tag', () => {

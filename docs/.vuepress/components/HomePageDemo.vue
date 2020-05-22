@@ -1,9 +1,9 @@
 <template>
-  <div class="demo">
-    Options: `Canada, United States, Mexico`,
-    <vue-bootstrap-typehead
-      :data="['Canada', 'United States', 'Mexico']"
+  <div>
+    <vue-typeahead-bootstrap
+      :data="['Canada', 'United Kingdom', 'United States', 'Mexico']"
       v-model="query"
+      showOnFocus
       placeholder="Choose a country"
     />
     Selected Country: {{query}}
@@ -12,11 +12,11 @@
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueBootstrapTypehead from "../../../src/components/VueBootstrapTypeahead";
+  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
 
   export default {
     name: "HomePageDemo",
-    components: {VueBootstrapTypehead},
+    components: {VueTypeaheadBootstrap},
     data(){
       return {
         query: ''
@@ -27,7 +27,4 @@
 
 <style lang="scss">
   @import 'bootstrap/scss/bootstrap.scss';
-  .demo{
-    min-height: 400px
-  }
 </style>

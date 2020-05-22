@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import VueBootstrapTypeahead from '@/components/VueBootstrapTypeahead.vue'
-import VueBootstrapTypeaheadList from '@/components/VueBootstrapTypeaheadList.vue'
+import VueTypeaheadBootstrap from '@/components/VueTypeaheadBootstrap.vue'
+import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
 
-describe('VueBootstrapTypeahead', () => {
+describe('VueTypeaheadBootstrap', () => {
   let wrapper
 
   const demoData = [
@@ -15,7 +15,7 @@ describe('VueBootstrapTypeahead', () => {
   ]
 
   beforeEach(() => {
-    wrapper = mount(VueBootstrapTypeahead, {
+    wrapper = mount(VueTypeaheadBootstrap, {
       propsData: {
         data: demoData
       }
@@ -23,7 +23,7 @@ describe('VueBootstrapTypeahead', () => {
   })
 
   it('Should mount and render a hidden typeahead list', () => {
-    let child = wrapper.find(VueBootstrapTypeaheadList)
+    let child = wrapper.find(VueTypeaheadBootstrapList)
     expect(child).toBeTruthy()
     expect(child.isVisible()).toBe(false)
   })
@@ -49,14 +49,14 @@ describe('VueBootstrapTypeahead', () => {
   })
 
   it('Show the list when given a query', () => {
-    let child = wrapper.find(VueBootstrapTypeaheadList)
+    let child = wrapper.find(VueTypeaheadBootstrapList)
     expect(child.isVisible()).toBe(false)
     wrapper.find('input').setValue('Can')
     expect(child.isVisible()).toBe(true)
   })
 
   it('Hides the list when blurred', () => {
-    let child = wrapper.find(VueBootstrapTypeaheadList)
+    let child = wrapper.find(VueTypeaheadBootstrapList)
     wrapper.setData({inputValue: 'Can'})
     wrapper.find('input').trigger('focus')
     expect(child.isVisible()).toBe(true)

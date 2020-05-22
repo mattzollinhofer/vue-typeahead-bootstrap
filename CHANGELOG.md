@@ -1,3 +1,11 @@
+## 2.0.0 - 22 May 2020
+- Breaking change: Rename this component fully. To continue using this component, you'll need to change all
+  your usages from `vue-bootstrap-typeahead` to `vue-typeahead-bootstrap`.
+
+- Bug Fix: Handle `ESC` keypress more appropriately
+- Feature: Add `autoclose` to allow for the component to hide upon item selection
+- Feature: Migrate to VuePress style documentation
+
 ## 1.0.3 - 2 Mar 2020
 - Allow up/down arrow keys to wrap without an extra key push.
 

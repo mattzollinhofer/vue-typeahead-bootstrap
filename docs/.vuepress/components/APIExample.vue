@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-bootstrap-typehead
+    <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -15,12 +15,12 @@
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueBootstrapTypehead from "../../../src/components/VueBootstrapTypeahead";
+  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
   import {debounce} from 'lodash'
 
   export default {
     name: "APIExample",
-    components: {VueBootstrapTypehead},
+    components: {VueTypeaheadBootstrap},
     data(){
       return {
         query: '',

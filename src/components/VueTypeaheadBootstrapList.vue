@@ -1,6 +1,6 @@
 <template>
   <div class="list-group shadow" ref="suggestionList">
-    <vue-bootstrap-typeahead-list-item
+    <vue-typeahead-bootstrap-list-item
       v-for="(item, id) in matchedItems" :key="id"
       :active="isListItemActive(id)"
       :data="item.data"
@@ -13,12 +13,12 @@
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
       </template>
-    </vue-bootstrap-typeahead-list-item>
+    </vue-typeahead-bootstrap-list-item>
   </div>
 </template>
 
 <script>
-import VueBootstrapTypeaheadListItem from './VueBootstrapTypeaheadListItem.vue'
+import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
 
 function sanitize(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -29,10 +29,10 @@ function escapeRegExp(str) {
 }
 
 export default {
-  name: 'VueBootstrapTypeaheadList',
+  name: 'VueTypeaheadBootstrapList',
 
   components: {
-    VueBootstrapTypeaheadListItem
+    VueTypeaheadBootstrapListItem
   },
 
   props: {

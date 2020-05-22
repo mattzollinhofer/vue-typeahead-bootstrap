@@ -28,7 +28,7 @@
         </slot>
       </div>
     </div>
-    <vue-bootstrap-typeahead-list
+    <vue-typeahead-bootstrap-list
       class="vbt-autcomplete-list"
       ref="list"
       v-show="isFocused && data.length > 0"
@@ -53,19 +53,19 @@
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
       </template>-->
-    </vue-bootstrap-typeahead-list>
+    </vue-typeahead-bootstrap-list>
   </div>
 </template>
 
 <script>
-import VueBootstrapTypeaheadList from './VueBootstrapTypeaheadList.vue'
+import VueTypeaheadBootstrapList from './VueTypeaheadBootstrapList.vue'
 import ResizeObserver from 'resize-observer-polyfill'
 
 export default {
-  name: 'VueBootstrapTypehead',
+  name: 'VueTypeaheadBootstrap',
 
   components: {
-    VueBootstrapTypeaheadList
+    VueTypeaheadBootstrapList
   },
 
   props: {

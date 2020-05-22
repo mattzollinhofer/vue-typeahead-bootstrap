@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-bootstrap-typehead
+    <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -22,19 +22,19 @@
           <i class="ml-auto fab fa-github-square fa-2x"></i>
         </div>
       </template>
-    </vue-bootstrap-typehead>
+    </vue-typeahead-bootstrap>
     Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
   </div>
 </template>
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueBootstrapTypehead from "../../../src/components/VueBootstrapTypeahead";
+  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
   import {debounce} from 'lodash'
 
   export default {
     name: "APIExample",
-    components: {VueBootstrapTypehead},
+    components: {VueTypeaheadBootstrap},
     data(){
       return {
         query: '',
