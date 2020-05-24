@@ -1,6 +1,8 @@
 <template>
   <div class="list-group shadow" ref="suggestionList">
+    <div class="vbst-item list-group-item list-group-item-action" v-if="matchedItems.length == 0">{{ noResultsInfo }}</div>
     <vue-typeahead-bootstrap-list-item
+      v-else-if="matchedItems.length > 0"
       v-for="(item, id) in matchedItems" :key="id"
       :active="isListItemActive(id)"
       :data="item.data"
@@ -62,6 +64,10 @@ export default {
       type: Number,
       default: 2
     },
+    noResultsText: {
+      type: String,
+      default: "No results found."
+    },
     showOnFocus: {
       type: Boolean,
       default: false
@@ -89,6 +95,9 @@ export default {
   },
 
   computed: {
+    noResultsInfo() {
+      return "Searched for: " +this.query+ ". " + this.noResultsText
+    },
     highlight() {
       return text => {
         text = sanitize(text)

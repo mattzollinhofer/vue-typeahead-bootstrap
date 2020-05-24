@@ -13,6 +13,7 @@
 | inputClass | String | | Class to be added to the `input` tag for validation, etc.
 | maxMatches | Number | 10 | Maximum amount of list items to appear.
 | minMatchingChars | Number | 2 | Minimum matching characters in query before the typeahead list appears
+| noResultsInfo | String | 'No results found.' | Text to show when no results are found for what the user typed.
 | prepend | String | | Text to be prepended to the `input-group`
 | serializer | Function | `input => input`| Function used to convert the entries in the data array into a text string. |
 | showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
