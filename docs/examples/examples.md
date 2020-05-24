@@ -136,8 +136,11 @@
       v-model="query"
       :data="users"
       :serializer="item => item.login"
+      highlightClass="special-highlight-class"
       @hit="selecteduser = $event"
+      :minMatchingChars="3"
       placeholder="Search Github Users"
+      inputClass="special-input-class"
       @input="lookupUser"
     >
       <template slot="suggestion" slot-scope="{ data, htmlText }">
@@ -184,4 +187,17 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import 'bootstrap/scss/bootstrap.scss';
+
+  .special-input-class{
+    background-color: black !important;
+    color: white !important;
+  }
+  .special-highlight-class{
+    font-weight: 900;
+    color: #585656;
+  }
+</style>
 ```
