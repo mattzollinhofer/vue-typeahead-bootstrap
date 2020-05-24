@@ -1,3 +1,5 @@
+## 2.0.2 - 22 May 2020
+- Add `noResultInfo` for when there are no results matching the user's search
 ## 2.0.1 - 22 May 2020
 - Add migration instructions
 

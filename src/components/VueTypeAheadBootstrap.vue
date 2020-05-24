@@ -105,6 +105,10 @@ export default {
       type: Boolean,
       default: false
     },
+    noResultsInfo: {
+      type: String,
+      default: "No results found."
+    },
     showOnFocus: {
       type: Boolean,
       default: false
