@@ -1,3 +1,9 @@
+## 2.1.0 - 26 May 2020
+- Add disabled option
+
+## 2.0.2 - 26 May 2020
+- Rename file
+
 ## 2.0.1 - 22 May 2020
 - Add migration instructions
 

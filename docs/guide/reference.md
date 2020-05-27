@@ -8,6 +8,7 @@
 | autoClose | `Boolean` | true | Whether the autocomplete should hide upon item selection
 | backgroundVariant | String | | Background color for the autocomplete result `list-group` items. [See values here.][1]
 | data | Array | | Array of data to be available for querying. **Required**|
+| disabled | `Boolean` | false | Enable or disable input field
 | disableSort | `Boolean` | false | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.
 | highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text
 | inputClass | String | | Class to be added to the `input` tag for validation, etc.
