@@ -28,6 +28,9 @@ export default {
     htmlText: {
       type: String
     },
+    disabled: {
+      type: Boolean
+    },
     backgroundVariant: {
       type: String
     },
@@ -41,8 +44,19 @@ export default {
       const classes = ['vbst-item', 'list-group-item', 'list-group-item-action']
       if (this.backgroundVariant) classes.push(`bg-${this.backgroundVariant}`)
       if (this.textVariant) classes.push(`text-${this.textVariant}`)
+      if (this.disabled) classes.push('disabled')
       return classes.join(' ')
     }
   }
 }
 </script>
+
+<style scoped>
+  a:not(.disabled){
+    cursor: pointer;
+  }
+  a.disabled{
+    cursor: default;
+    pointer-events: none;
+  }
+</style>

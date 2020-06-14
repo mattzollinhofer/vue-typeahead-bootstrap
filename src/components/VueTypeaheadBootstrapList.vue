@@ -5,6 +5,7 @@
       :active="isListItemActive(id)"
       :data="item.data"
       :html-text="highlight(item.text)"
+      :disabled="isDisabledItem(item)"
       :background-variant="backgroundVariant"
       :text-variant="textVariant"
       @click.native="handleHit(item, $event)"
@@ -19,6 +20,9 @@
 
 <script>
 import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
+import {clone, includes, reject, reverse, findIndex} from 'lodash'
+
+const BEFORE_LIST_INDEX = -1
 
 function sanitize(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -62,6 +66,10 @@ export default {
       type: Number,
       default: 2
     },
+    disabledValues: {
+      type: Array,
+      default: () => []
+    },
     showOnFocus: {
       type: Boolean,
       default: false
@@ -104,6 +112,12 @@ export default {
       return escapeRegExp(sanitize(this.query))
     },
 
+    actionableItems() {
+      return reject(this.matchedItems, (matchedItem) => {
+        return this.isDisabledItem(matchedItem)
+      })
+    },
+
     matchedItems() {
       if (!this.showOnFocus && (this.query.length === 0 || this.query.length < this.minMatchingChars)) {
         return []
@@ -137,25 +151,63 @@ export default {
         this.$emit('hit', this.matchedItems[this.activeListItem])
       }
     },
+    isDisabledItem(item) {
+      return includes(this.disabledValues, item.text)
+    },
+
     isListItemActive(id) {
       return this.activeListItem === id
     },
     resetActiveListItem() {
       this.activeListItem = -1
     },
-    selectNextListItem() {
-      if (this.activeListItem < this.matchedItems.length - 1) {
-        this.activeListItem++
-      } else {
-        this.activeListItem = 0
+
+    findIndexForNextActiveItem(itemsToSearch, currentSelectedItem) {
+      if (!itemsToSearch) {
+        itemsToSearch = this.matchedItems
       }
+      if (currentSelectedItem === undefined) {
+        currentSelectedItem = this.activeListItem
+      }
+
+      let nextActiveIndex = findIndex(
+        itemsToSearch,
+        function(o) { return !this.isDisabledItem(o) }.bind(this),
+        currentSelectedItem + 1
+      )
+
+      if (nextActiveIndex === BEFORE_LIST_INDEX) {
+        nextActiveIndex = findIndex(
+          itemsToSearch,
+          function(o) { return !this.isDisabledItem(o) }.bind(this)
+        )
+      }
+
+      return nextActiveIndex
     },
-    selectPreviousListItem() {
-      if (this.activeListItem <= 0) {
-        this.activeListItem = this.matchedItems.length - 1
-      } else {
-        this.activeListItem--
+
+    selectNextListItem() {
+      if (this.actionableItems.length <= 0) {
+        this.activeListItem = BEFORE_LIST_INDEX
+        return true
       }
+
+      this.activeListItem = this.findIndexForNextActiveItem()
+    },
+
+    selectPreviousListItem() {
+      if (this.actionableItems.length <= 0) {
+        this.activeListItem = BEFORE_LIST_INDEX
+        return true
+      } else if (this.activeListItem === 0) {
+        this.activeListItem = BEFORE_LIST_INDEX
+      }
+
+      let reversedList = reverse(clone(this.matchedItems))
+      let currerntReversedIndex = ((this.matchedItems.length - 1) - this.activeListItem)
+      let nextReverseIndex = this.findIndexForNextActiveItem(reversedList, currerntReversedIndex)
+
+      this.activeListItem = (this.matchedItems.length - 1) - nextReverseIndex
     }
   },
   watch: {

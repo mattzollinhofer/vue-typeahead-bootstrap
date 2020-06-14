@@ -52,7 +52,7 @@ describe('VueTypeaheadBootstrap', () => {
 
   it('Allows for a name to be provided for the input', () => {
     wrapper.setProps({inputName: 'name-is-provided-for-this-input'})
-    expect(wrapper.find("input").attributes().name).toBe('name-is-provided-for-this-input')
+    expect(wrapper.find('input').attributes().name).toBe('name-is-provided-for-this-input')
   })
 
   it('Show the list when given a query', () => {

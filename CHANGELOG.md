@@ -1,3 +1,6 @@
+## 2.4.0 - 05 Jul 2020
+- Add the ability to disable list items
+
 ## 2.3.0 - 18 Jun 2020
 - Add support for inputName
 
