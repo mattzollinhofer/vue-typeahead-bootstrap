@@ -81,6 +81,121 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
+  describe('selecting items with the keyboard', () => {
+    beforeEach(() => {
+      wrapper.setProps({
+        data: [
+          {
+            id: 0,
+            data: 'Canada',
+            text: 'Canada'
+          },
+          {
+            id: 1,
+            data: 'Canada1',
+            text: 'Canada1'
+          },
+          {
+            id: 2,
+            data: 'Canada2',
+            text: 'Canada2'
+          }
+        ],
+        query: 'Cana'
+      })
+    })
+
+    describe('using the down arrow', () => {
+      it('cycles through all options', () => {
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(0)
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+      })
+      it('returns the first item when nothing is disabled', () => {
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(0)
+      })
+      it('returns the second item when the first is disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+      })
+      it('returns the third item when the first and second are disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada', 'Canada1']})
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+      })
+      it('returns -1 when everything is disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2']})
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(-1)
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(-1)
+      })
+      it('wraps back to the beginning from the end', () => {
+        wrapper.vm.activeListItem = 1
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(0)
+      })
+      it('wrapping accounts for disabled items', () => {
+        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.vm.activeListItem = 2
+        wrapper.vm.selectNextListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+      })
+    })
+
+    describe('using the up arrow', () => {
+      it('returns the last item when nothing is disabled', () => {
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+      })
+      it('returns the second item when the last is disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+      })
+      it('returns the second item when the third and fourth are disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada3', 'Canada2']})
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+      })
+      it('returns -1 when everything is disabled', () => {
+        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2', 'Canada3']})
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(-1)
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(-1)
+      })
+      it('cycles through all options', () => {
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(0)
+      })
+      it('wraps back to the end from the beginning', () => {
+        wrapper.vm.activeListItem = 1
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(0)
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(2)
+      })
+      it('wrapping accounts for disabled items', () => {
+        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.vm.activeListItem = 0
+        wrapper.vm.selectPreviousListItem()
+        expect(wrapper.vm.activeListItem).toBe(1)
+      })
+    })
+  })
+
   it('Highlights text matches properly with highlightClass prop', () => {
     wrapper.setProps({
       query: 'Canada',

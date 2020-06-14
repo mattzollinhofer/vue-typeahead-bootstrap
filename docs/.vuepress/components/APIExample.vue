@@ -6,6 +6,7 @@
       :data="users"
       :serializer="item => item.login"
       @hit="selecteduser = $event"
+      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
       placeholder="Search Github Users"
       @input="lookupUser"
     />

@@ -10,6 +10,7 @@
       :minMatchingChars="3"
       placeholder="Search Github Users"
       inputClass="special-input-class"
+      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
       @input="lookupUser"
     >
       <template slot="suggestion" slot-scope="{ data, htmlText }">

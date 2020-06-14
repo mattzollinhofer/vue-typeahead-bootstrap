@@ -46,6 +46,7 @@
       @hit="handleHit"
       @listItemBlur="handleChildBlur"
       :highlightClass='highlightClass'
+      :disabledValues="disabledValues"
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -94,6 +95,10 @@ export default {
       validator: d => d instanceof Function
     },
     backgroundVariant: String,
+    disabledValues: {
+      type: Array,
+      default: () => []
+    },
     textVariant: String,
     inputClass: {
       type: String,

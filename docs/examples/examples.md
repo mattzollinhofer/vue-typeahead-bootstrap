@@ -33,16 +33,17 @@
 ```vue
 <template>
   <div>
-      <vue-typehead-bootstrap
-        class="mb-4"
-        v-model="query"
-        :data="users"
-        :serializer="item => item.login"
-        @hit="selecteduser = $event"
-        placeholder="Search Github Users"
-        @input="lookupUser"
-      />
-      Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
+    <vue-typeahead-bootstrap
+      class="mb-4"
+      v-model="query"
+      :data="users"
+      :serializer="item => item.login"
+      @hit="selecteduser = $event"
+      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
+      placeholder="Search Github Users"
+      @input="lookupUser"
+    />
+    Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
   </div>
 </template>
 
@@ -131,7 +132,7 @@
 ```vue
 <template>
   <div>
-    <vue-typehead-bootstrap
+    <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
       :data="users"
@@ -141,6 +142,7 @@
       :minMatchingChars="3"
       placeholder="Search Github Users"
       inputClass="special-input-class"
+      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
       @input="lookupUser"
     >
       <template slot="suggestion" slot-scope="{ data, htmlText }">
