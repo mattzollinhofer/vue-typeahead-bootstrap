@@ -79,8 +79,8 @@ export default {
       type: String
     },
     disabled: {
-     type: Boolean,
-     default: false
+      type: Boolean,
+      default: false
     },
     data: {
       type: Array,
