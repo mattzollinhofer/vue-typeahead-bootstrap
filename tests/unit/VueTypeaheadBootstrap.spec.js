@@ -35,13 +35,15 @@ describe('VueTypeaheadBootstrap', () => {
   })
 
   it('Uses a custom serializer properly', () => {
-    wrapper.setProps({
-      data: [{
-        name: 'Canada',
-        code: 'CA'
-      }],
-      value: 'Can',
-      serializer: t => t.name
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: [{
+          name: 'Canada',
+          code: 'CA'
+        }],
+        value: 'Can',
+        serializer: t => t.name
+      }
     })
     expect(wrapper.vm.formattedData[0].id).toBe(0)
     expect(wrapper.vm.formattedData[0].data.code).toBe('CA')
