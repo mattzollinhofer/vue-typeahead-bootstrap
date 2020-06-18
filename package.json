@@ -29,7 +29,8 @@
     "docs:build": "vuepress build docs",
     "docs:deploy": "./deploy.sh",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit --coverage"
+    "test:unit": "vue-cli-service test:unit --coverage",
+    "test:unit:watch": "vue-cli-service test:unit --watch"
   },
   "dependencies": {
     "resize-observer-polyfill": "^1.5.0",
