@@ -1,3 +1,6 @@
+## 2.3.0 - 18 Jun 2020
+- Add support for inputName
+
 ## 2.2.0 - 18 Jun 2020
 - Fix IE support for click handling
 - Clean up tests
