@@ -1,3 +1,7 @@
+## 2.2.0 - 18 Jun 2020
+- Fix IE support for click handling
+- Clean up tests
+
 ## 2.1.0 - 26 May 2020
 - Add disabled option
 

@@ -57,12 +57,12 @@ describe('VueTypeaheadBootstrap', () => {
     expect(child.isVisible()).toBe(true)
   })
 
-  it('Hides the list when blurred', () => {
+  it('Hides the list when focus is lost', () => {
     let child = wrapper.find(VueTypeaheadBootstrapList)
     wrapper.setData({inputValue: 'Can'})
     wrapper.find('input').trigger('focus')
     expect(child.isVisible()).toBe(true)
-    wrapper.find('input').trigger('blur')
+    wrapper.find('input').trigger('focusout')
     expect(child.isVisible()).toBe(false)
   })
 
