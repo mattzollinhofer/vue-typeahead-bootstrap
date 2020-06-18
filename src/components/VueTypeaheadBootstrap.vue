@@ -10,6 +10,7 @@
         ref="input"
         type="search"
         :class="`form-control ${inputClass}`"
+        :name="inputName"
         :placeholder="placeholder"
         :aria-label="placeholder"
         :value="inputValue"
@@ -97,6 +98,10 @@ export default {
     inputClass: {
       type: String,
       default: ''
+    },
+    inputName: {
+      type: String,
+      default: undefined
     },
     maxMatches: {
       type: Number,
