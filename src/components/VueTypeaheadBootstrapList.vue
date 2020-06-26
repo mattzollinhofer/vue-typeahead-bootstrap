@@ -105,7 +105,14 @@ export default {
     },
 
     matchedItems() {
-      if (!this.showOnFocus && (this.query.length === 0 || this.query.length < this.minMatchingChars)) {
+      if (
+        !this.showOnFocus &&
+        (
+          this.query == null ||
+          this.query.length === 0 ||
+          this.query.length < this.minMatchingChars
+        )
+      ) {
         return []
       }
 
