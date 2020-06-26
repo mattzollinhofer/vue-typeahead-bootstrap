@@ -39,3 +39,16 @@ The only required props are a `v-model` and a `data` array.
   :data="['Canada', 'United States', 'Mexico']"
 />
 ```
+
+## Nuxt.js
+
+Configure the [build transpile](https://nuxtjs.org/api/configuration-build/#transpile) option in `nuxt.config.js`.
+```js
+{
+  build: {
+    transpile: [
+      ({ isServer }) => 'vue-typeahead-bootstrap'
+    ]
+  }
+}
+```
