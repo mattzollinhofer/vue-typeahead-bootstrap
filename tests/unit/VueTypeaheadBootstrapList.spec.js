@@ -55,6 +55,20 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(1)
   })
 
+  it('Matches no items when there is no query', () => {
+    expect(wrapper.vm.matchedItems.length).toBe(0)
+    wrapper.setProps({
+      query: ''
+    })
+    expect(wrapper.vm.matchedItems.length).toBe(0)
+    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
+    wrapper.setProps({
+      query: null
+    })
+    expect(wrapper.vm.matchedItems.length).toBe(0)
+    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
+  })
+
   it('Limits the number of matches with maxMatches', () => {
     wrapper.setProps({
       query: 'can'
