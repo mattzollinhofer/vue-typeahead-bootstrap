@@ -20,7 +20,7 @@
 
 <script>
 import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
-import {clone, includes, reject, reverse, findIndex} from 'lodash'
+import {clone, includes, isEmpty, reject, reverse, findIndex} from 'lodash'
 
 const BEFORE_LIST_INDEX = -1
 
@@ -119,14 +119,7 @@ export default {
     },
 
     matchedItems() {
-      if (
-        !this.showOnFocus &&
-        (
-          this.query == null ||
-          this.query.length === 0 ||
-          this.query.length < this.minMatchingChars
-        )
-      ) {
+      if (!this.showOnFocus && (isEmpty(this.query) || this.query.length < this.minMatchingChars)) {
         return []
       }
 
