@@ -1,3 +1,6 @@
+## 2.4.1 - 05 Jul 2020
+- Fix bug when given a null query
+
 ## 2.4.0 - 05 Jul 2020
 - Add the ability to disable list items
 
