@@ -1,3 +1,6 @@
+## 2.6.0 - 07 Jul 2020
+- Make CDNs work
+
 ## 2.5.0 - 07 Jul 2020
 - Propagate keyup events from the input.
 

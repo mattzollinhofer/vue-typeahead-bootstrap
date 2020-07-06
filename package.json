@@ -1,6 +1,6 @@
 {
   "name": "vue-typeahead-bootstrap",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "private": false,
   "description": "A typeahead/autocomplete component for Vue 2 using Bootstrap 4",
   "keywords": [
@@ -22,9 +22,12 @@
   "license": "MIT",
   "author": "Matt Zollinhofer <vue.typeahead.bootstrap@gmail.com>",
   "main": "src/components/VueTypeaheadBootstrap.vue",
+  "module": "dist/VueTypeaheadBootstrap.esm.js",
+  "unpkg": "dist/VueTypeaheadBootstrap.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name VueTypeaheadBootstrap src/components/VueTypeaheadBootstrap.vue",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/VueTypeaheadBootstrap.min.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:deploy": "./deploy.sh",
@@ -37,6 +40,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-plugin-unit-jest": "^3.0.0",
@@ -51,6 +56,7 @@
     "highlight.js": "^9.12.0",
     "node-sass": "^4.13.1",
     "sass-loader": "^7.0.1",
+    "rollup-plugin-vue": "^5.1.9",
     "underscore": "^1.9.1",
     "vue-gtm": "^2.0.0",
     "vue-hljs": "^1.0.0",
