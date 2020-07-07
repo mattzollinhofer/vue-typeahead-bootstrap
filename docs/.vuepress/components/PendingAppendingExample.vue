@@ -9,6 +9,7 @@
       placeholder="Search GitHub Users"
       prepend="Username:"
       @input="searchUsers"
+      @keyup.enter="handleEnter"
     >
       <template slot="append">
         <button  class="btn btn-primary">
@@ -36,6 +37,9 @@
     },
 
     methods: {
+      handleEnter: function(event){
+        alert('keyup.enter pressed!');
+      },
       searchUsers: debounce(function() {
         fetch(`https://api.github.com/search/users?q=${this.query}`)
           .then(response => {

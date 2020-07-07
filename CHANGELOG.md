@@ -1,3 +1,6 @@
+## 2.5.0 - 07 Jul 2020
+- Propagate keyup events from the input.
+
 ## 2.4.1 - 05 Jul 2020
 - Fix bug when given a null query
 
