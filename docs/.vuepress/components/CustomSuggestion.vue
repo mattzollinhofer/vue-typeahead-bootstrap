@@ -55,7 +55,11 @@
             return response.json();
           })
           .then(data => {
-            this.users = data.items;
+            if(!data.items){
+              this.users = [];
+            } else {
+              this.users = data.items;
+            }
           })
       }, 500)
     }
