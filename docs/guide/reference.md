@@ -29,6 +29,7 @@ Name | Description
 | --- | --- |
 hit | Triggered when an autocomplete item is selected. The entry in the input data array that was selected is returned.
 input | The component can be used with `v-model`
+keyup | Triggered when any keyup event is fired in the input. Often used for catching `keyup.enter`.
 
 ## Slots
 
