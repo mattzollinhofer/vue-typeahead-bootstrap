@@ -1,12 +1,12 @@
 <template>
   <div>
+    <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
     <vue-typeahead-bootstrap
       :data="['Canada', 'United Kingdom', 'United States', 'Mexico']"
       v-model="query"
       showOnFocus
       placeholder="Choose a country"
     />
-    Selected Country: {{query}}
   </div>
 </template>
 

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="pl-1 pb-2 pt-3">
+      Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
+    </div>
     <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
@@ -27,7 +30,6 @@
         </div>
       </template>
     </vue-typeahead-bootstrap>
-    Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
   </div>
 </template>
 

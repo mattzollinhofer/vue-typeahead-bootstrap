@@ -1,6 +1,5 @@
 ---
 home: true
-heroImage: https://raw.githubusercontent.com/mattzollinhofer/vue-typeahead-bootstrap/master/assets/screenshot.png
 heroText: Vue Typeahead Bootstrap
 tagline: A simple typeahead for Vue 2 using Bootstrap 4
 actionText: Get Started
