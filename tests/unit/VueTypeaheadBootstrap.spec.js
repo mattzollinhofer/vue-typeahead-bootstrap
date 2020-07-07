@@ -78,4 +78,12 @@ describe('VueTypeaheadBootstrap', () => {
     })
     expect(wrapper.vm.sizeClasses).toBe('input-group input-group-lg')
   })
+
+  it('Emits a keyup.enter event when enter is pressed on the input field', () => {
+    let input = wrapper.find('input')
+    input.trigger('keyup.enter')
+    expect(wrapper.emitted().keyup).toBeTruthy()
+    expect(wrapper.emitted().keyup.length).toBe(1)
+    expect(wrapper.emitted().keyup[0][0].keyCode).toBe(13)
+  })
 })
