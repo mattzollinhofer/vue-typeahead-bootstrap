@@ -8,7 +8,7 @@
   <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
   <div>
     Options: `Canada, United States, Mexico`,
-    <vue-typehead-bootstrap
+    <vue-typeahead-bootstrap
       :data="['Canada', 'United States', 'Mexico']"
       v-model="query"
       placeholder="Choose a country"
@@ -167,7 +167,7 @@
           <i class="ml-auto fab fa-github-square fa-2x"></i>
         </div>
       </template>
-    </vue-typehead-bootstrap>
+    </vue-typeahead-bootstrap>
   </div>
 </template>
 
