@@ -1,3 +1,6 @@
+## 2.5.1 - 08 Aug 2020
+- Fix broken key handling events
+
 ## 2.5.0 - 07 Jul 2020
 - Propagate keyup events from the input.
 
