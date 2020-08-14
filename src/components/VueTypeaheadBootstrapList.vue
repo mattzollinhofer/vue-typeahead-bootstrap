@@ -86,9 +86,7 @@ export default {
 
   created() {
     this.$parent.$on('input', this.resetActiveListItem)
-    this.$parent.$on('keyup.down', this.selectNextListItem)
-    this.$parent.$on('keyup.up', this.selectPreviousListItem)
-    this.$parent.$on('keyup.enter', this.hitActiveListItem)
+    this.$parent.$on('keyup', this.handleParentInputKeyup)
   },
   data() {
     return {
@@ -142,6 +140,20 @@ export default {
   },
 
   methods: {
+    handleParentInputKeyup(e) {
+      switch(e.keyCode){
+        case 40: //down arrow
+          this.selectNextListItem();
+          break;
+        case 38: //up arrow
+          this.selectPreviousListItem();
+          break;
+        case 13: //enter
+          this.hitActiveListItem();
+          break;
+      }
+    },
+
     handleHit(item, evt) {
       this.$emit('hit', item)
       evt.preventDefault()
