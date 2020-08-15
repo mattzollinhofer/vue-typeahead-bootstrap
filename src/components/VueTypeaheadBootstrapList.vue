@@ -5,6 +5,7 @@
       :active="isListItemActive(id)"
       :data="item.data"
       :html-text="highlight(item.text)"
+      :screen-reader-text="item.text"
       :disabled="isDisabledItem(item)"
       :background-variant="backgroundVariant"
       :text-variant="textVariant"
