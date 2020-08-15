@@ -10,9 +10,12 @@
     href="#"
     :class="textClasses"
   >
-    <slot name="suggestion" v-bind="{ data: data, htmlText: htmlText }">
-      <span v-html="htmlText"></span>
-    </slot>
+    <div class="sr-only">{{screenReaderText}}</div>
+    <div aria-hidden="true">
+      <slot name="suggestion" v-bind="{ data: data, htmlText: htmlText }">
+        <span v-html="htmlText"></span>
+      </slot>
+    </div>
   </a>
 </template>
 
@@ -25,6 +28,9 @@ export default {
       type: Boolean
     },
     data: {},
+    screenReaderText:{
+      type: String
+    },
     htmlText: {
       type: String
     },
