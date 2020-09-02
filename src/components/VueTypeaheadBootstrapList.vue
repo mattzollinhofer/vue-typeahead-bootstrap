@@ -24,6 +24,10 @@ import {clone, includes, isEmpty, reject, reverse, findIndex} from 'lodash'
 
 const BEFORE_LIST_INDEX = -1
 
+function normalize(text) {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 function sanitize(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
@@ -107,7 +111,7 @@ export default {
     },
 
     escapedQuery() {
-      return escapeRegExp(sanitize(this.query))
+      return escapeRegExp(sanitize(normalize(this.query)))
     },
 
     actionableItems() {
@@ -125,16 +129,11 @@ export default {
 
       // Filter, sort, and concat
       return this.data
-        .filter(i => i.text.match(re) !== null)
+        .filter(i => normalize(i.text).match(re) !== null)
         .sort((a, b) => {
           if (this.disableSort) return 0
 
-          const aIndex = a.text.indexOf(a.text.match(re)[0])
-          const bIndex = b.text.indexOf(b.text.match(re)[0])
-
-          if (aIndex < bIndex) { return -1 }
-          if (aIndex > bIndex) { return 1 }
-          return 0
+          return a.text.localeCompare(b.text)
         }).slice(0, this.maxMatches)
     }
   },
