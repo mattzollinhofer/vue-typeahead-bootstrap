@@ -1,3 +1,6 @@
+## 2.5.3.beta - 28 Sep 2020
+- Attempted a11y improvements to use standard combobox aria tags
+
 ## 2.5.2 - 28 Sep 2020
 - Fix IE dropdowns closing
 

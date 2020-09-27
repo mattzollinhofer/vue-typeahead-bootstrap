@@ -3,8 +3,11 @@
     <vue-typeahead-bootstrap-list-item
       v-for="(item, id) in matchedItems" :key="id"
       :active="isListItemActive(id)"
+      :id="(isListItemActive(id)) ? `selected-option-${vbtUniqueId}` : false"
       :data="item.data"
       :html-text="highlight(item.text)"
+      role="option"
+      :aria-selected="(isListItemActive(id)) ? 'true' : 'false'"
       :screen-reader-text="item.text"
       :disabled="isDisabledItem(item)"
       :background-variant="backgroundVariant"
@@ -49,6 +52,10 @@ export default {
     query: {
       type: String,
       default: ''
+    },
+    vbtUniqueId: {
+      type: Number,
+      required: true,
     },
     backgroundVariant: {
       type: String

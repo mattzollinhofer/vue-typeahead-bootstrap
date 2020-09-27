@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <div :class="sizeClasses">
+  <div
+    :id="`typeahead-${id}`"
+    role="combobox"
+    aria-haspopup="listbox"
+    :aria-owns="`result-list-${id}`"
+    :aria-expanded="(isFocused && data.length > 0) ? 'true' : 'false'"
+  >
+    <div :class="inputGroupClasses">
       <div ref="prependDiv" v-if="$slots.prepend || prepend" class="input-group-prepend">
         <slot name="prepend">
           <span class="input-group-text">{{ prepend }}</span>
@@ -8,11 +14,18 @@
       </div>
       <input
         ref="input"
-        type="search"
+        :id="`typeahead-input-${id}`"
+        type="text"
+        role="searchbox"
         :class="`form-control ${inputClass}`"
+        :aria-labelledby="ariaLabelledBy"
+        aria-multiline="false"
+        aria-autocomplete="list"
+        :aria-controls="`result-list-${id}`"
+        :aria-activedescendant="`selected-option-${id}`"
         :name="inputName"
         :placeholder="placeholder"
-        :aria-label="placeholder"
+        :aria-label="(!ariaLabelledBy) ? placeholder : false"
         :value="inputValue"
         :disabled="disabled"
         @focus="isFocused = true"
@@ -20,7 +33,6 @@
         @input="handleInput($event.target.value)"
         @keydown.esc="handleEsc($event.target.value)"
         @keyup="$emit('keyup', $event)"
-        autocomplete="off"
       />
       <div v-if="$slots.append || append" class="input-group-append">
         <slot name="append">
@@ -29,6 +41,7 @@
       </div>
     </div>
     <vue-typeahead-bootstrap-list
+      :id="`result-list-${id}`"
       class="vbt-autcomplete-list"
       ref="list"
       v-show="isFocused && data.length > 0"
@@ -45,6 +58,8 @@
       @listItemBlur="handleChildBlur"
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
+      :vbtUniqueId="id"
+      role="listbox"
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -70,6 +85,10 @@ export default {
   },
 
   props: {
+    ariaLabelledBy: {
+      type: String,
+      default: null,
+    },
     size: {
       type: String,
       default: null,
@@ -141,7 +160,10 @@ export default {
   },
 
   computed: {
-    sizeClasses() {
+    id(){
+      return Math.floor(Math.random()*100000);
+    },
+    inputGroupClasses() {
       return this.size ? `input-group input-group-${this.size}` : 'input-group'
     },
 
