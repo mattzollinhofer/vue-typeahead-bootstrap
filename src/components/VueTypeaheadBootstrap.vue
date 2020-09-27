@@ -16,7 +16,7 @@
         :value="inputValue"
         :disabled="disabled"
         @focus="isFocused = true"
-        @focusout="handleFocusOut"
+        @blur="handleFocusOut"
         @input="handleInput($event.target.value)"
         @keydown.esc="handleEsc($event.target.value)"
         @keyup="$emit('keyup', $event)"
@@ -130,6 +130,10 @@ export default {
       type: Boolean,
       default: true
     },
+    ieCloseFix: {
+      type: Boolean,
+      default: false,
+    },
     placeholder: String,
     prepend: String,
     append: String,
@@ -190,12 +194,20 @@ export default {
       this.isFocused = false
     },
 
-    handleFocusOut(evt) {
-      const tgt = evt.relatedTarget
+    runFocusOut(tgt){
       if (tgt && tgt.classList.contains('vbst-item')) {
         return
       }
       this.isFocused = false
+    },
+
+    handleFocusOut(evt) {
+      const tgt = evt.relatedTarget;
+      if (!!navigator.userAgent.match(/Trident.*rv:11\./)  && this.ieCloseFix){
+        setTimeout(() => {this.runFocusOut(tgt)}, 300);
+      } else {
+        this.runFocusOut(tgt);
+      }
     },
 
     handleInput(newValue) {
