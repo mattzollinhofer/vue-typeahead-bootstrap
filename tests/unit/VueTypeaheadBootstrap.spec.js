@@ -79,7 +79,7 @@ describe('VueTypeaheadBootstrap', () => {
     expect(wrapper.vm.sizeClasses).toBe('input-group input-group-lg')
   })
 
-  describe ('key press handling', () =>{
+  describe('key press handling', () => {
     it('Emits a keyup.enter event when enter is pressed on the input field', () => {
       let input = wrapper.find('input')
       input.trigger('keyup.enter')
@@ -90,7 +90,7 @@ describe('VueTypeaheadBootstrap', () => {
 
     it('triggers the correct event when hitting enter', () => {
       let child = wrapper.find(VueTypeaheadBootstrapList)
-      const hitActive = spyOn(child.vm, "hitActiveListItem")
+      const hitActive = spyOn(child.vm, 'hitActiveListItem')
       let input = wrapper.find('input')
 
       input.trigger('keyup.enter')
@@ -100,7 +100,7 @@ describe('VueTypeaheadBootstrap', () => {
 
     it('triggers the correct event when hitting the down arrow', () => {
       let child = wrapper.find(VueTypeaheadBootstrapList)
-      const selectNextListItem = spyOn(child.vm, "selectNextListItem")
+      const selectNextListItem = spyOn(child.vm, 'selectNextListItem')
       let input = wrapper.find('input')
 
       input.trigger('keyup.down')
@@ -110,7 +110,7 @@ describe('VueTypeaheadBootstrap', () => {
 
     it('triggers the correct event when hitting up arrow', () => {
       let child = wrapper.find(VueTypeaheadBootstrapList)
-      const selectPreviousListItem = spyOn(child.vm, "selectPreviousListItem")
+      const selectPreviousListItem = spyOn(child.vm, 'selectPreviousListItem')
       let input = wrapper.find('input')
 
       input.trigger('keyup.up')
