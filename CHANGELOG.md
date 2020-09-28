@@ -1,3 +1,6 @@
+## 2.5.2 - 28 Sep 2020
+- Fix IE dropdowns closing
+
 ## 2.5.1 - 08 Aug 2020
 - Fix broken key handling events
 
