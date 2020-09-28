@@ -28,7 +28,7 @@ export default {
       type: Boolean
     },
     data: {},
-    screenReaderText:{
+    screenReaderText: {
       type: String
     },
     htmlText: {

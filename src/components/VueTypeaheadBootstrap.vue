@@ -87,7 +87,7 @@ export default {
   props: {
     ariaLabelledBy: {
       type: String,
-      default: null,
+      default: null
     },
     size: {
       type: String,
@@ -151,7 +151,7 @@ export default {
     },
     ieCloseFix: {
       type: Boolean,
-      default: false,
+      default: false
     },
     placeholder: String,
     prepend: String,
@@ -160,8 +160,8 @@ export default {
   },
 
   computed: {
-    id(){
-      return Math.floor(Math.random()*100000);
+    id() {
+      return Math.floor(Math.random() * 100000)
     },
     inputGroupClasses() {
       return this.size ? `input-group input-group-${this.size}` : 'input-group'
@@ -216,7 +216,7 @@ export default {
       this.isFocused = false
     },
 
-    runFocusOut(tgt){
+    runFocusOut(tgt) {
       if (tgt && tgt.classList.contains('vbst-item')) {
         return
       }
@@ -224,11 +224,11 @@ export default {
     },
 
     handleFocusOut(evt) {
-      const tgt = evt.relatedTarget;
-      if (!!navigator.userAgent.match(/Trident.*rv:11\./)  && this.ieCloseFix){
-        setTimeout(() => {this.runFocusOut(tgt)}, 300);
+      const tgt = evt.relatedTarget
+      if (!!navigator.userAgent.match(/Trident.*rv:11\./) && this.ieCloseFix) {
+        setTimeout(() => { this.runFocusOut(tgt) }, 300)
       } else {
-        this.runFocusOut(tgt);
+        this.runFocusOut(tgt)
       }
     },
 

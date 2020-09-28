@@ -55,7 +55,7 @@ export default {
     },
     vbtUniqueId: {
       type: Number,
-      required: true,
+      required: true
     },
     backgroundVariant: {
       type: String
@@ -149,16 +149,16 @@ export default {
 
   methods: {
     handleParentInputKeyup(e) {
-      switch(e.keyCode){
-        case 40: //down arrow
-          this.selectNextListItem();
-          break;
-        case 38: //up arrow
-          this.selectPreviousListItem();
-          break;
-        case 13: //enter
-          this.hitActiveListItem();
-          break;
+      switch (e.keyCode) {
+        case 40: // down arrow
+          this.selectNextListItem()
+          break
+        case 38: // up arrow
+          this.selectPreviousListItem()
+          break
+        case 13: // enter
+          this.hitActiveListItem()
+          break
       }
     },
 
