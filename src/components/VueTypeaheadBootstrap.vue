@@ -15,7 +15,7 @@
       <input
         ref="input"
         :id="`typeahead-input-${id}`"
-        type="text"
+        :type="inputType"
         role="searchbox"
         :class="`form-control ${inputClass}`"
         :aria-labelledby="ariaLabelledBy"
@@ -156,7 +156,11 @@ export default {
     placeholder: String,
     prepend: String,
     append: String,
-    highlightClass: String
+    highlightClass: String,
+    inputType:{
+      type: String,
+      default: "text"
+    }
   },
 
   computed: {
