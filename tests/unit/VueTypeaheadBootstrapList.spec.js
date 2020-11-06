@@ -31,7 +31,8 @@ describe('VueBootstrapTypeaheadList', () => {
   beforeEach(() => {
     wrapper = mount(VueTypeaheadBootstrapList, {
       propsData: {
-        data: demoData
+        data: demoData,
+        vbtUniqueId: 123456789
       }
     })
   })

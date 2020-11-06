@@ -1,3 +1,5 @@
+/* global spyOn */
+
 import { mount } from '@vue/test-utils'
 import VueTypeaheadBootstrap from '@/components/VueTypeaheadBootstrap.vue'
 import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
@@ -67,16 +69,16 @@ describe('VueTypeaheadBootstrap', () => {
     wrapper.setData({inputValue: 'Can'})
     wrapper.find('input').trigger('focus')
     expect(child.isVisible()).toBe(true)
-    wrapper.find('input').trigger('focusout')
+    wrapper.find('input').trigger('blur')
     expect(child.isVisible()).toBe(false)
   })
 
   it('Renders the list in different sizes', () => {
-    expect(wrapper.vm.sizeClasses).toBe('input-group')
+    expect(wrapper.vm.inputGroupClasses).toBe('input-group')
     wrapper.setProps({
       size: 'lg'
     })
-    expect(wrapper.vm.sizeClasses).toBe('input-group input-group-lg')
+    expect(wrapper.vm.inputGroupClasses).toBe('input-group input-group-lg')
   })
 
   describe('key press handling', () => {
