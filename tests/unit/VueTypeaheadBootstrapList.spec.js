@@ -133,17 +133,17 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(0)
       })
       it('returns the second item when the first is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.setProps({ disabledValues: ['Canada'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns the third item when the first and second are disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('returns -1 when everything is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1', 'Canada2'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(-1)
         wrapper.vm.selectNextListItem()
@@ -157,7 +157,7 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(0)
       })
       it('wrapping accounts for disabled items', () => {
-        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.setProps({ disabledValues: ['Canada'] })
         wrapper.vm.activeListItem = 2
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
@@ -170,17 +170,17 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('returns the second item when the last is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada2'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns the second item when the third and fourth are disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada3', 'Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada3', 'Canada2'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns -1 when everything is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2', 'Canada3']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1', 'Canada2', 'Canada3'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(-1)
         wrapper.vm.selectPreviousListItem()
@@ -202,7 +202,7 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('wrapping accounts for disabled items', () => {
-        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada2'] })
         wrapper.vm.activeListItem = 0
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)

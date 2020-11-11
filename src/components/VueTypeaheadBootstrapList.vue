@@ -24,7 +24,7 @@
 
 <script>
 import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
-import {clone, includes, isEmpty, reject, reverse, findIndex} from 'lodash'
+import { clone, includes, isEmpty, reject, reverse, findIndex } from 'lodash'
 
 const BEFORE_LIST_INDEX = -1
 
