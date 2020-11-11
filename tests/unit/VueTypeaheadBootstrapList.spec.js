@@ -42,16 +42,18 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.classes()).toContain('list-group')
   })
 
-  it('Matches items when there is a query', () => {
+  it('Matches items when there is a query', async () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
       query: 'Can'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(2)
     expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(2)
     wrapper.setProps({
       query: 'Canada'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(1)
     expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(1)
   })
@@ -60,11 +62,6 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
       query: ''
-    })
-    expect(wrapper.vm.matchedItems.length).toBe(0)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
-    wrapper.setProps({
-      query: null
     })
     expect(wrapper.vm.matchedItems.length).toBe(0)
     expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
@@ -81,18 +78,20 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.vm.matchedItems.length).toBe(1)
   })
 
-  it('Uses minMatchingChars to filter the number of matches', () => {
+  it('Uses minMatchingChars to filter the number of matches', async () => {
     wrapper.setProps({
       query: 'c',
       minMatchingChars: 1
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(3)
   })
 
-  it('Highlights text matches properly by default', () => {
+  it('Highlights text matches properly by default', async () => {
     wrapper.setProps({
       query: 'Canada'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
@@ -211,11 +210,12 @@ describe('VueBootstrapTypeaheadList', () => {
     })
   })
 
-  it('Highlights text matches properly with highlightClass prop', () => {
+  it('Highlights text matches properly with highlightClass prop', async () => {
     wrapper.setProps({
       query: 'Canada',
       highlightClass: 'myStyle'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
   })
 })

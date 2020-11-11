@@ -25,7 +25,7 @@ describe('VueTypeaheadBootstrap', () => {
   })
 
   it('Should mount and render a hidden typeahead list', () => {
-    let child = wrapper.find(VueTypeaheadBootstrapList)
+    let child = wrapper.findComponent(VueTypeaheadBootstrapList)
     expect(child).toBeTruthy()
     expect(child.isVisible()).toBe(false)
   })
@@ -53,23 +53,32 @@ describe('VueTypeaheadBootstrap', () => {
   })
 
   it('Allows for a name to be provided for the input', () => {
-    wrapper.setProps({inputName: 'name-is-provided-for-this-input'})
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: demoData,
+        inputName: 'name-is-provided-for-this-input'
+      }
+    })
     expect(wrapper.find('input').attributes().name).toBe('name-is-provided-for-this-input')
   })
 
-  it('Show the list when given a query', () => {
-    let child = wrapper.find(VueTypeaheadBootstrapList)
+  it('Show the list when given a query', async () => {
+    let child = wrapper.findComponent(VueTypeaheadBootstrapList)
     expect(child.isVisible()).toBe(false)
     wrapper.find('input').setValue('Can')
+    await wrapper.vm.$nextTick()
     expect(child.isVisible()).toBe(true)
   })
 
-  it('Hides the list when focus is lost', () => {
-    let child = wrapper.find(VueTypeaheadBootstrapList)
-    wrapper.setData({inputValue: 'Can'})
+  it('Hides the list when focus is lost', async () => {
+    let child = wrapper.findComponent(VueTypeaheadBootstrapList)
+    wrapper.setData({ inputValue: 'Can' })
     wrapper.find('input').trigger('focus')
+    await wrapper.vm.$nextTick()
     expect(child.isVisible()).toBe(true)
+
     wrapper.find('input').trigger('blur')
+    await wrapper.vm.$nextTick()
     expect(child.isVisible()).toBe(false)
   })
 
@@ -91,7 +100,7 @@ describe('VueTypeaheadBootstrap', () => {
     })
 
     it('triggers the correct event when hitting enter', () => {
-      let child = wrapper.find(VueTypeaheadBootstrapList)
+      let child = wrapper.findComponent(VueTypeaheadBootstrapList)
       const hitActive = spyOn(child.vm, 'hitActiveListItem')
       let input = wrapper.find('input')
 
@@ -101,7 +110,7 @@ describe('VueTypeaheadBootstrap', () => {
     })
 
     it('triggers the correct event when hitting the down arrow', () => {
-      let child = wrapper.find(VueTypeaheadBootstrapList)
+      let child = wrapper.findComponent(VueTypeaheadBootstrapList)
       const selectNextListItem = spyOn(child.vm, 'selectNextListItem')
       let input = wrapper.find('input')
 
@@ -111,7 +120,7 @@ describe('VueTypeaheadBootstrap', () => {
     })
 
     it('triggers the correct event when hitting up arrow', () => {
-      let child = wrapper.find(VueTypeaheadBootstrapList)
+      let child = wrapper.findComponent(VueTypeaheadBootstrapList)
       const selectPreviousListItem = spyOn(child.vm, 'selectPreviousListItem')
       let input = wrapper.find('input')
 
