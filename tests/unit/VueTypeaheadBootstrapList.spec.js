@@ -31,28 +31,31 @@ describe('VueBootstrapTypeaheadList', () => {
   beforeEach(() => {
     wrapper = mount(VueTypeaheadBootstrapList, {
       propsData: {
-        data: demoData
+        data: demoData,
+        vbtUniqueId: 123456789
       }
     })
   })
 
   it('Mounts and renders a list-group div', () => {
-    expect(wrapper.is('div')).toBe(true)
+    expect(wrapper.element.tagName.toLowerCase()).toBe('div')
     expect(wrapper.classes()).toContain('list-group')
   })
 
-  it('Matches items when there is a query', () => {
+  it('Matches items when there is a query', async () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
       query: 'Can'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(2)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(2)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(2)
     wrapper.setProps({
       query: 'Canada'
     })
+    await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(1)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(1)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(1)
   })
 
   it('Matches no items when there is no query', () => {
@@ -61,12 +64,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: ''
     })
     expect(wrapper.vm.matchedItems.length).toBe(0)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
-    wrapper.setProps({
-      query: null
-    })
-    expect(wrapper.vm.matchedItems.length).toBe(0)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(0)
   })
 
   it('Limits the number of matches with maxMatches', () => {
@@ -80,19 +78,21 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.vm.matchedItems.length).toBe(1)
   })
 
-  it('Uses minMatchingChars to filter the number of matches', () => {
+  it('Uses minMatchingChars to filter the number of matches', async () => {
     wrapper.setProps({
       query: 'c',
       minMatchingChars: 1
     })
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(3)
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(3)
   })
 
-  it('Highlights text matches properly by default', () => {
+  it('Highlights text matches properly by default', async () => {
     wrapper.setProps({
       query: 'Canada'
     })
-    expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
   describe('selecting items with the keyboard', () => {
@@ -133,17 +133,17 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(0)
       })
       it('returns the second item when the first is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.setProps({ disabledValues: ['Canada'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns the third item when the first and second are disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('returns -1 when everything is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1', 'Canada2'] })
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(-1)
         wrapper.vm.selectNextListItem()
@@ -157,7 +157,7 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(0)
       })
       it('wrapping accounts for disabled items', () => {
-        wrapper.setProps({disabledValues: ['Canada']})
+        wrapper.setProps({ disabledValues: ['Canada'] })
         wrapper.vm.activeListItem = 2
         wrapper.vm.selectNextListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
@@ -170,17 +170,17 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('returns the second item when the last is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada2'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns the second item when the third and fourth are disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada3', 'Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada3', 'Canada2'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
       it('returns -1 when everything is disabled', () => {
-        wrapper.setProps({disabledValues: ['Canada', 'Canada1', 'Canada2', 'Canada3']})
+        wrapper.setProps({ disabledValues: ['Canada', 'Canada1', 'Canada2', 'Canada3'] })
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(-1)
         wrapper.vm.selectPreviousListItem()
@@ -202,7 +202,7 @@ describe('VueBootstrapTypeaheadList', () => {
         expect(wrapper.vm.activeListItem).toBe(2)
       })
       it('wrapping accounts for disabled items', () => {
-        wrapper.setProps({disabledValues: ['Canada2']})
+        wrapper.setProps({ disabledValues: ['Canada2'] })
         wrapper.vm.activeListItem = 0
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
@@ -210,11 +210,12 @@ describe('VueBootstrapTypeaheadList', () => {
     })
   })
 
-  it('Highlights text matches properly with highlightClass prop', () => {
+  it('Highlights text matches properly with highlightClass prop', async () => {
     wrapper.setProps({
       query: 'Canada',
       highlightClass: 'myStyle'
     })
-    expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
   })
 })
