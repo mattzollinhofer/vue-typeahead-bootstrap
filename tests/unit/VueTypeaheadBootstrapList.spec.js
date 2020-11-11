@@ -38,7 +38,7 @@ describe('VueBootstrapTypeaheadList', () => {
   })
 
   it('Mounts and renders a list-group div', () => {
-    expect(wrapper.is('div')).toBe(true)
+    expect(wrapper.element.tagName.toLowerCase()).toBe('div')
     expect(wrapper.classes()).toContain('list-group')
   })
 
@@ -49,13 +49,13 @@ describe('VueBootstrapTypeaheadList', () => {
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(2)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(2)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(2)
     wrapper.setProps({
       query: 'Canada'
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(1)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(1)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(1)
   })
 
   it('Matches no items when there is no query', () => {
@@ -64,7 +64,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: ''
     })
     expect(wrapper.vm.matchedItems.length).toBe(0)
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(0)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(0)
   })
 
   it('Limits the number of matches with maxMatches', () => {
@@ -84,7 +84,7 @@ describe('VueBootstrapTypeaheadList', () => {
       minMatchingChars: 1
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findAll(VueTypeaheadBootstrapListItem).length).toBe(3)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(3)
   })
 
   it('Highlights text matches properly by default', async () => {
@@ -92,7 +92,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: 'Canada'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
   describe('selecting items with the keyboard', () => {
@@ -216,6 +216,6 @@ describe('VueBootstrapTypeaheadList', () => {
       highlightClass: 'myStyle'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.find(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
   })
 })
