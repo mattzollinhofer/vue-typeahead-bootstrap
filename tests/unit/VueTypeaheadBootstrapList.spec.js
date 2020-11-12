@@ -42,6 +42,41 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.classes()).toContain('list-group')
   })
 
+  it("Orders the results with text matches early in the hit's text first, not alphabetically", () => {
+    const data = [
+      {
+        id: 0,
+        data: 'all quiet on the western front',
+        text: 'all quiet on the western front'
+      },
+      {
+        id: 1,
+        data: 'west side story',
+        text: 'west side story'
+      },
+      {
+        id: 2,
+        data: 'western nevada',
+        text: 'western nevada'
+      }
+    ]
+
+    wrapper = mount(VueTypeaheadBootstrapList, {
+      propsData: {
+        data: data,
+        vbtUniqueId: 123456789
+      }
+    })
+
+    expect(wrapper.vm.matchedItems.length).toBe(0)
+    wrapper.setProps({
+      query: 'west'
+    })
+    expect(wrapper.vm.matchedItems.length).toBe(3)
+    let expectedOrder = ['west side story', 'western nevada', 'all quiet on the western front']
+    expect(wrapper.vm.matchedItems.map(item => item.text)).toEqual(expectedOrder)
+  })
+
   it('Matches items when there is a query', async () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
