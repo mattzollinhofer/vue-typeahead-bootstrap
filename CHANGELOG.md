@@ -1,3 +1,6 @@
+## 2.5.4 - 11 Nov 2020
+- Reduced package size
+
 ## 2.5.3.beta - 28 Sep 2020
 - Attempted a11y improvements to use standard combobox aria tags
 
