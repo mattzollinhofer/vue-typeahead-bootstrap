@@ -1,3 +1,6 @@
+## 2.5.5-beta - 11 Nov 2020
+- Include lodash in dependencies
+
 ## 2.5.4 - 11 Nov 2020
 - Reduced package size
 
