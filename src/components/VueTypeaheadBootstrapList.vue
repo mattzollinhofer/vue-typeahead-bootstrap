@@ -11,6 +11,7 @@
       :screen-reader-text="item.text"
       :disabled="isDisabledItem(item)"
       :background-variant="backgroundVariant"
+      :background-variant-resolver="backgroundVariantResolver"
       :text-variant="textVariant"
       @click.native="handleHit(item, $event)"
       v-on="$listeners"
@@ -155,6 +156,11 @@ export default {
     },
     backgroundVariant: {
       type: String
+    },
+    backgroundVariantResolver: {
+      type: Function,
+      default: (d) => null,
+      validator: d => d instanceof Function
     },
     disableSort: {
       type: Boolean

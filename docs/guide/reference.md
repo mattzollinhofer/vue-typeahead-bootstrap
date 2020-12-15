@@ -7,6 +7,7 @@
 | append | String | | Text to be appended to the `input-group`
 | autoClose | `Boolean` | true | Whether the autocomplete should hide upon item selection
 | backgroundVariant | String | | Background color for the autocomplete result `list-group` items. [See values here.][1]
+| backgroundVariantResolver | Function | input => null | Function which accepts the current list item data and returns a background color for the current autocomplete result `list-group` item. The non-null/non-empty string value returned from this function will supersede the value specified in `backgroundVariant`. 
 | data | Array | | Array of data to be available for querying. **Required**|
 | disabled | `Boolean` | false | Enable or disable input field
 | disabledValues| `Array` | false | The dropdown items to `disable`.

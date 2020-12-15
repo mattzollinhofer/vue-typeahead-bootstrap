@@ -40,15 +40,29 @@ export default {
     backgroundVariant: {
       type: String
     },
+    backgroundVariantResolver: {
+      type: Function,
+      default: (d) => null,
+      validator: d => d instanceof Function
+    },
     textVariant: {
       type: String
+    }
+  },
+  data: function() {
+    return {
+      baseTextClasses: ['vbst-item', 'list-group-item', 'list-group-item-action']
     }
   },
 
   computed: {
     textClasses() {
-      const classes = ['vbst-item', 'list-group-item', 'list-group-item-action']
-      if (this.backgroundVariant) classes.push(`bg-${this.backgroundVariant}`)
+      const classes = [...this.baseTextClasses]
+      const backgroundVariantResolverResult = this.backgroundVariantResolver(this.data)
+      const backgroundVariant =
+          (typeof backgroundVariantResolverResult === 'string' && backgroundVariantResolverResult.trim()) ||
+          this.backgroundVariant
+      if (backgroundVariant) classes.push(`bg-${backgroundVariant}`)
       if (this.textVariant) classes.push(`text-${this.textVariant}`)
       if (this.disabled) classes.push('disabled')
       return classes.join(' ')
