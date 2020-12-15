@@ -68,7 +68,7 @@ export default {
     },
     backgroundVariantResolver: {
       type: Function,
-      default: (d) => d,
+      default: (d) => null,
       validator: d => d instanceof Function
     },
     disableSort: {
