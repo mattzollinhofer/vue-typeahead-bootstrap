@@ -48,6 +48,7 @@
       :query="inputValue"
       :data="formattedData"
       :background-variant="backgroundVariant"
+      :background-variant-resolver="backgroundVariantResolver"
       :text-variant="textVariant"
       :maxMatches="maxMatches"
       :minMatchingChars="minMatchingChars"
@@ -112,6 +113,11 @@ export default {
       validator: d => d instanceof Function
     },
     backgroundVariant: String,
+    backgroundVariantResolver: {
+      type: Function,
+      default: (d) => d,
+      validator: d => d instanceof Function
+    },
     disabledValues: {
       type: Array,
       default: () => []
