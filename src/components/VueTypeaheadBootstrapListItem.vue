@@ -42,7 +42,7 @@ export default {
     },
     backgroundVariantResolver: {
       type: Function,
-      default: () => [],
+      default: (d) => null,
       validator: d => d instanceof Function
     },
     textVariant: {
