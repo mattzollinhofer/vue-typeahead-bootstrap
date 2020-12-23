@@ -18,12 +18,22 @@
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
       </template>
+
     </vue-typeahead-bootstrap-list-item>
+
+    <vue-typeahead-bootstrap-list-append
+      v-if="$scopedSlots.listAppend" 
+      v-bind="{ query, backgroundVariant, textVariant }"
+      @hitAppend="$emit('hitAppend', $event)"
+    >
+      <slot name="listAppend" />
+    </vue-typeahead-bootstrap-list-append>
   </div>
 </template>
 
 <script>
 import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
+import VueTypeaheadBootstrapListAppend from './VueTypeaheadBootstrapListAppend.vue'
 import clone from 'lodash/clone'
 import includes from 'lodash/includes'
 import isEmpty from 'lodash/isEmpty'
@@ -45,7 +55,8 @@ export default {
   name: 'VueTypeaheadBootstrapList',
 
   components: {
-    VueTypeaheadBootstrapListItem
+    VueTypeaheadBootstrapListItem,
+    VueTypeaheadBootstrapListAppend
   },
 
   props: {

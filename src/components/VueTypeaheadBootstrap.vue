@@ -55,6 +55,7 @@
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"
       @hit="handleHit"
+      @hitAppend="handleHitAppend"
       @listItemBlur="handleChildBlur"
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
@@ -204,6 +205,15 @@ export default {
 
       this.inputValue = evt.text
       this.$emit('hit', evt.data)
+
+      if (this.autoClose) {
+        this.$refs.input.blur()
+        this.isFocused = false
+      }
+    },
+
+    handleHitAppend(evt) {
+      this.$emit('hitAppend', evt)
 
       if (this.autoClose) {
         this.$refs.input.blur()
