@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
 import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem.vue'
 
@@ -217,5 +217,43 @@ describe('VueBootstrapTypeaheadList', () => {
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
+  })
+
+})
+
+describe('VueBootstrapTypeaheadList - List append slot', () => {
+  const propsData = { data: [], vbtUniqueId: 123456789 }
+  const listAppendSlot = () => 'Test'
+
+  it.each([undefined, listAppendSlot])('Renders `VueTypeaheadBootstrapListAppend` if slot used', (listAppend) => {
+    const wrapper = shallowMount(VueTypeaheadBootstrapList, { 
+      propsData, scopedSlots: { ...listAppend && {listAppend} }
+    })
+    const shouldRenderComponent = !!listAppend
+
+    expect(wrapper.findComponent({name: 'VueTypeaheadBootstrapListAppend'}).exists()).toBe(shouldRenderComponent)
+  })
+
+  it('Passes props to `VueTypeaheadBootstrapListAppend`', () => {
+    const componentProps = { query: 'Query', backgroundVariant: 'bg', textVariant: 'text' }
+    const wrapper = shallowMount(VueTypeaheadBootstrapList, { 
+      propsData: { ...propsData, ...componentProps }, scopedSlots: { listAppend: listAppendSlot }
+    })
+    const component = wrapper.findComponent({name: 'VueTypeaheadBootstrapListAppend'})
+
+    expect(component.props()).toEqual(componentProps)
+  })
+
+  it('Emits `hitListAppend` event from `VueTypeaheadBootstrapListAppend`', () => {
+    const query = 'Query'
+    const wrapper = shallowMount(VueTypeaheadBootstrapList, { 
+      propsData: { ...propsData, query }, scopedSlots: { listAppend: listAppendSlot }
+    })
+    const component = wrapper.findComponent({name: 'VueTypeaheadBootstrapListAppend'})
+
+    component.vm.$emit('hitListAppend', query)
+
+    expect(wrapper.emitted('hitListAppend')).toHaveLength(1)
+    expect(wrapper.emitted('hitListAppend')[0][0]).toBe(query)
   })
 })
