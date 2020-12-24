@@ -28,20 +28,23 @@
 Name | Description
 | --- | --- |
 hit | Triggered when an autocomplete item is selected. The entry in the input data array that was selected is returned.
+hitListAppend | Triggered when list append item is selected (if `listAppend` slot used). Returns query.
 input | The component can be used with `v-model`
 keyup | Triggered when any keyup event is fired in the input. Often used for catching `keyup.enter`.
 
 ## Slots
 
-There are `prepend` and `append` slots available for adding buttons or other markup. Overrides the prepend and append props.
+There are `prepend` and `append` slots available for adding buttons or other markup. Overrides the prepend and append props. 
 
-### Scoped Slot
+### Scoped Slots
 
 You can use a [scoped slot][3] called `suggestion` to define custom content for the suggestion `list-item`'s. You can use bound variables `data`, which holds the data from the input array, and `htmlText`, which is the highlighted text that is used for the suggestion.
 
-See the [custom suggestion slot example][4] for more info.
+Additionaly there is `listAppend` slot, rendered at the end of autocomplete items as item with slot content, when selected emits `hitListAppend` event. Slot has bound variable `query`.
+
+See the [Examples][4] for more info.
 
 [1]: https://getbootstrap.com/docs/4.1/utilities/colors/#background-color
 [2]: https://getbootstrap.com/docs/4.1/utilities/colors/#color
 [3]: https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots
-[4]: #
+[4]: ../examples/examples.md
