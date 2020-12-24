@@ -3,7 +3,7 @@
     tabindex="0"
     href="#"
     :class="textClasses"
-    @click.prevent="$emit('hitAppend', query)"
+    @click.prevent="$emit('hitListAppend', query)"
   >
     <div aria-hidden="true">
       <slot v-bind="{ query }" />

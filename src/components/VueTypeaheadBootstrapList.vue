@@ -24,7 +24,7 @@
     <vue-typeahead-bootstrap-list-append
       v-if="$scopedSlots.listAppend" 
       v-bind="{ query, backgroundVariant, textVariant }"
-      @hitAppend="$emit('hitAppend', $event)"
+      @hitListAppend="$emit('hitListAppend', $event)"
     >
       <slot name="listAppend" />
     </vue-typeahead-bootstrap-list-append>

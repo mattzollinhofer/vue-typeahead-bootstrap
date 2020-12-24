@@ -5,7 +5,7 @@
         v-model="query"
         v-bind="{ data }"
         placeholder="Choose your favorite color"
-        @hitAppend="addColor"
+        @hitListAppend="addColor"
       >
         <template v-if="query.length > 1" slot="listAppend" :slot-scope="{ query }">
           Add: {{ query }}
