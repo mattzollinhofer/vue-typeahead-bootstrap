@@ -44,7 +44,7 @@
       :id="`result-list-${id}`"
       class="vbt-autcomplete-list"
       ref="list"
-      v-show="isFocused && (!!data.length || !!$slots.listAppend)"
+      v-show="isFocused && (!!data.length || $scopedSlots.listAppend)"
       :query="inputValue"
       :data="formattedData"
       :background-variant="backgroundVariant"

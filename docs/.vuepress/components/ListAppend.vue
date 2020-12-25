@@ -7,7 +7,7 @@
         placeholder="Choose your favorite color"
         @hitListAppend="addColor"
       >
-        <template v-if="query.length > 1" slot="listAppend" :slot-scope="{ query }">
+        <template v-if="query.length > 1" slot="listAppend">
           Add: {{ query }}
         </template>
       </vue-typeahead-bootstrap>

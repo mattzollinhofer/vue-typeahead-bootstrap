@@ -6,7 +6,7 @@
     @click.prevent="$emit('hitListAppend', query)"
   >
     <div aria-hidden="true">
-      <slot v-bind="{ query }" />
+      <slot />
     </div>
   </a>
 </template>
