@@ -34,13 +34,13 @@ keyup | Triggered when any keyup event is fired in the input. Often used for cat
 
 ## Slots
 
-There are `prepend` and `append` slots available for adding buttons or other markup. Overrides the prepend and append props. 
+There are `prepend` and `append` slots available for adding buttons or other markup. Overrides the prepend and append props.
 
 ### Scoped Slots
 
 You can use a [scoped slot][3] called `suggestion` to define custom content for the suggestion `list-item`'s. You can use bound variables `data`, which holds the data from the input array, and `htmlText`, which is the highlighted text that is used for the suggestion.
 
-Additionaly there is `listAppend` slot, rendered at the end of autocomplete items as item with slot content, when selected emits `hitListAppend` event. Slot has bound variable `query`.
+Additionaly there is the `listAppend` slot, rendered at the end of autocomplete items (as an item with slot content), when selected, emits `hitListAppend` event. Slot has bound variable `query`.
 
 See the [Examples][4] for more info.
 

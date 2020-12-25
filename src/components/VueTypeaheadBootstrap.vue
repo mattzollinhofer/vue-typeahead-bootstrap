@@ -55,7 +55,7 @@
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"
       @hit="handleHit"
-      @hitListAppend="handlehitListAppend"
+      @hitListAppend="handleHitListAppend"
       @listItemBlur="handleChildBlur"
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
@@ -212,7 +212,7 @@ export default {
       }
     },
 
-    handlehitListAppend(evt) {
+    handleHitListAppend(evt) {
       this.$emit('hitListAppend', evt)
 
       if (this.autoClose) {
