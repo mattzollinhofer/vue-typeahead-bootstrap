@@ -118,7 +118,7 @@ export default {
         if (this.query.length === 0) {
           return text
         }
-        const re = new RegExp(this.escapedQuery, 'gi')
+        const re = new RegExp(escapeRegExp(sanitize(this.query)), 'gi')
         return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
       }
     },
