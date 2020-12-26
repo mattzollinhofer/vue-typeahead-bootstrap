@@ -146,16 +146,15 @@ export default {
         .sort((a, b) => {
           if (this.disableSort) return 0
 
-          /* Putting this back in for reference */
-          /* const aIndex = a.text.indexOf(a.text.match(re)[0]) */
-          /* const bIndex = b.text.indexOf(b.text.match(re)[0]) */
+          const normalizedTextA = normalize(a.text);
+          const normalizedTextB = normalize(b.text);
 
-          /* if (aIndex < bIndex) { return -1 } */
-          /* if (aIndex > bIndex) { return 1 } */
-          /* return 0 */
+          const aIndex = normalizedTextA.indexOf(normalizedTextA.match(re)[0])
+          const bIndex = normalizedTextB.indexOf(normalizedTextB.match(re)[0])
 
-          /* TODO: this breaks the previous sorting assumption */
-          return a.text.localeCompare(b.text)
+          if (aIndex < bIndex) { return -1 }
+          if (aIndex > bIndex) { return 1 }
+          return 0
         }).slice(0, this.maxMatches)
     }
   },
