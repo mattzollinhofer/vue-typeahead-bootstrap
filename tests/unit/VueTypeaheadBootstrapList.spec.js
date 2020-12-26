@@ -77,6 +77,36 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.vm.matchedItems.map(item => item.text)).toEqual(expectedOrder)
   })
 
+  it("Orders the results with text matches early in the hit's text first, not alphabetically (with accents)", () => {
+    const data = [
+      {
+        id: 0,
+        data: 'le destin d\'amélie poulain',
+        text: 'le destin d\'amélie poulain'
+      },
+      {
+        id: 1,
+        data: 'amélie poulain',
+        text: 'amélie poulain'
+      },
+    ]
+
+    wrapper = mount(VueTypeaheadBootstrapList, {
+      propsData: {
+        data: data,
+        vbtUniqueId: 123456789
+      }
+    })
+
+    expect(wrapper.vm.matchedItems.length).toBe(0)
+    wrapper.setProps({
+      query: 'amélie'
+    })
+    expect(wrapper.vm.matchedItems.length).toBe(2)
+    let expectedOrder = ['amélie poulain', 'le destin d\'amélie poulain']
+    expect(wrapper.vm.matchedItems.map(item => item.text)).toEqual(expectedOrder)
+  })
+
   it('Matches items when there is a query', async () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
