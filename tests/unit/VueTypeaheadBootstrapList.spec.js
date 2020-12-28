@@ -160,6 +160,36 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada</span>`)
   })
 
+  it('Highlights text matches correctly when the data contains accents and the query does not', async () => {
+    wrapper.setProps({
+      data: [
+        {
+          id: 0,
+          data: 'amélie',
+          text: 'amélie'
+        },
+      ],
+      query: 'amelie'
+    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>amélie</span>`)
+  });
+
+  it('Highlighs text matches correctly when the query contains accents and the data does not', async () => {
+    wrapper.setProps({
+      data: [
+        {
+          id: 0,
+          data: 'amelie',
+          text: 'amelie'
+        },
+      ],
+      query: 'amélie'
+    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>amelie</span>`)
+  });
+
   describe('selecting items with the keyboard', () => {
     beforeEach(() => {
       wrapper.setProps({
