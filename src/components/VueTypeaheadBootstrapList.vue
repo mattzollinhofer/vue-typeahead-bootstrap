@@ -206,20 +206,23 @@ export default {
           return text
         }
 
-        let regexp = '';
-
-        for (let letter of this.query) {
-          const normalizedLetter = normalize(sanitize(letter));
-          if (characterMap.has(normalizedLetter)) {
-            regexp += characterMap.get(normalizedLetter);
-          } else {
-            regexp += letter;
-          }
-        }
-
-        const re = new RegExp(regexp, 'gi')
-        return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
+        return text.replace(this.highlightQuery, `<span class='${this.highlightClass}'>$&</span>`)
       }
+    },
+
+    highlightQuery() {
+      let regexp = '';
+
+      for (let letter of this.query) {
+        const normalizedLetter = normalize(sanitize(letter));
+        if (characterMap.has(normalizedLetter)) {
+          regexp += characterMap.get(normalizedLetter);
+        } else {
+          regexp += letter;
+        }
+      }
+
+      return new RegExp(regexp, 'gi')
     },
 
     escapedQuery() {
