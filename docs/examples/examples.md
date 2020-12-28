@@ -39,6 +39,7 @@
     <vue-typeahead-bootstrap
       class="mb-4"
       v-model="query"
+      :ieCloseFix="false"
       :data="users"
       :serializer="item => item.login"
       @hit="selecteduser = $event"

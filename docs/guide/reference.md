@@ -12,6 +12,7 @@
 | disabledValues| `Array` | false | The dropdown items to `disable`.
 | disableSort | `Boolean` | false | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.
 | highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text
+| ieCloseFix | Boolean | true | Adds (imperfect) handling for auto closing the typeahead list on focus out in IE
 | inputClass | String | | Class to be added to the `input` tag for validation, etc.
 | inputName | String | | Name to be added to the `input` tag.
 | maxMatches | Number | 10 | Maximum amount of list items to appear.

@@ -151,7 +151,7 @@ export default {
     },
     ieCloseFix: {
       type: Boolean,
-      default: false
+      default: true
     },
     placeholder: String,
     prepend: String,

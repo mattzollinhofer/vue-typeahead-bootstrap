@@ -7,6 +7,7 @@
       class="mb-4"
       v-model="query"
       :data="users"
+      :ieCloseFix="false"
       :serializer="item => item.login"
       @hit="selecteduser = $event"
       :disabledValues="(selecteduser ? [selecteduser.login] : [])"
