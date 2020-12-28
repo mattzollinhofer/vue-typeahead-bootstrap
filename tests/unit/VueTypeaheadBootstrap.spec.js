@@ -129,4 +129,15 @@ describe('VueTypeaheadBootstrap', () => {
       expect(selectPreviousListItem).toHaveBeenCalledWith()
     })
   })
+
+  it('Emits `hitListAppend` event from `VueTypeaheadBootstrapList`', async () => {
+    const query = 'Query'
+    wrapper.setProps({ query })
+    await wrapper.vm.$nextTick()
+    
+    wrapper.findComponent({name: 'VueTypeaheadBootstrapList'}).vm.$emit('hitListAppend', query)
+
+    expect(wrapper.emitted('hitListAppend')).toHaveLength(1)
+    expect(wrapper.emitted('hitListAppend')[0][0]).toBe(query)
+  })
 })

@@ -212,3 +212,41 @@
   }
 </style>
 ```
+
+## List Append Slot
+<ListAppend/>
+
+```vue
+<template>
+  <div class="pl-1 pb-2 pt-3">Selected color: {{query}}</div>
+  <div>
+    Options: `Red, Green, Blue` or add your own,
+    <vue-typeahead-bootstrap
+        v-model="query"
+        v-bind="{ data }"
+        placeholder="Choose your favorite color"
+        @hitListAppend="addColor"
+      >
+        <template v-if="query.length > 1" slot="listAppend">
+          Add: {{ query }}
+        </template>
+      </vue-typeahead-bootstrap>
+  </div>
+</template>
+
+<script>
+  export default {
+    data(){
+      return {
+        query: '',
+        data: ['Red', 'Green', 'Blue']
+      }
+    },
+    methods: {
+      addColor(colorName) {
+        this.data.push(colorName)
+      }
+    }
+  }
+</script>
+```

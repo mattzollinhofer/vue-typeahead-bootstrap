@@ -44,7 +44,7 @@
       :id="`result-list-${id}`"
       class="vbt-autcomplete-list"
       ref="list"
-      v-show="isFocused && data.length > 0"
+      v-show="isFocused && (!!data.length || $scopedSlots.listAppend)"
       :query="inputValue"
       :data="formattedData"
       :background-variant="backgroundVariant"
@@ -55,6 +55,7 @@
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"
       @hit="handleHit"
+      @hitListAppend="handleHitListAppend"
       @listItemBlur="handleChildBlur"
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
@@ -204,6 +205,15 @@ export default {
 
       this.inputValue = evt.text
       this.$emit('hit', evt.data)
+
+      if (this.autoClose) {
+        this.$refs.input.blur()
+        this.isFocused = false
+      }
+    },
+
+    handleHitListAppend(evt) {
+      this.$emit('hitListAppend', evt)
 
       if (this.autoClose) {
         this.$refs.input.blur()
