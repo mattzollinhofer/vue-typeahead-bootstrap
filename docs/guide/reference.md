@@ -12,6 +12,7 @@
 | disabledValues| `Array` | false | The dropdown items to `disable`.
 | disableSort | `Boolean` | false | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.
 | highlightClass | `String` | `vbt-matched-text` | CSS class to style highlighted text
+| ieCloseFix | Boolean | true | Adds (imperfect) handling for auto closing the typeahead list on focus out in IE
 | inputClass | String | | Class to be added to the `input` tag for validation, etc.
 | inputName | String | | Name to be added to the `input` tag.
 | maxMatches | Number | 10 | Maximum amount of list items to appear.
@@ -20,7 +21,7 @@
 | serializer | Function | `input => input`| Function used to convert the entries in the data array into a text string. |
 | showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 | showOnFocus | `Boolean` | false | Show results as soon as the input gains focus before the user has typed anything.
-| size | String | | Size of the `input-group`. Valid values: `sm` or `lg` |
+| size | String | | Size of the `input-group`. Valid values: `sm`, `md`, or `lg` |
 | textVariant | String | | Text color for autocomplete result `list-group` items. [See values here.][2]
 
 ## Events

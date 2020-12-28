@@ -93,7 +93,7 @@ export default {
     size: {
       type: String,
       default: null,
-      validator: size => ['lg', 'sm'].indexOf(size) > -1
+      validator: size => ['lg', 'md', 'sm'].indexOf(size) > -1
     },
     value: {
       type: String
@@ -152,7 +152,7 @@ export default {
     },
     ieCloseFix: {
       type: Boolean,
-      default: false
+      default: true
     },
     placeholder: String,
     prepend: String,

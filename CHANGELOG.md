@@ -1,3 +1,6 @@
+## 2.5.6 - 28 Dec 2020
+- Formalize IE close fix
+
 ## 2.5.5 - 19 Dec 2020
 - Include lodash in dependencies
 
