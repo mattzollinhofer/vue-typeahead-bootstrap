@@ -1,3 +1,7 @@
+## 2.6.1 - 28 Dec 2020
+- Add internationalization support, specifically for diacritics (accents, etc)
+- Allow `md` as a size option
+
 ## 2.5.6 - 28 Dec 2020
 - Formalize IE close fix
 
