@@ -1,3 +1,7 @@
+## 2.7.2 - 31 Dec 2020
+- Update highlight.js for security vulnerability
+- Update missing doc link
+
 ## 2.7.1 - 31 Dec 2020
 - Update docs to match new usage of `list-group-item-${context}`
 
