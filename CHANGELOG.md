@@ -1,3 +1,6 @@
+## 2.7.1 - 31 Dec 2020
+- Update docs to match new usage of `list-group-item-${context}`
+
 ## 2.7.0 - 31 Dec 2020
 - Add support for different background colors per list item
 - NOTE: also changing from `bg-${context}` to `list-group-item-${context}` to match bootstrap docs and allow text colors to change automatically
