@@ -1,3 +1,7 @@
+## 2.7.0 - 31 Dec 2020
+- Add support for different background colors per list item
+- NOTE: also changing from `bg-${context}` to `list-group-item-${context}` to match bootstrap docs and allow text colors to change automatically
+
 ## 2.6.1 - 28 Dec 2020
 - Add internationalization support, specifically for diacritics (accents, etc)
 - Allow `md` as a size option
