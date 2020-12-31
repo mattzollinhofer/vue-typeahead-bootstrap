@@ -13,6 +13,7 @@
       :disabledValues="(selecteduser ? [selecteduser.login] : [])"
       placeholder="Search Github Users"
       @input="lookupUser"
+      :background-variant-resolver="(user) => ((user.id % 2) == 0) ? 'light':'dark'"
     />
   </div>
 </template>

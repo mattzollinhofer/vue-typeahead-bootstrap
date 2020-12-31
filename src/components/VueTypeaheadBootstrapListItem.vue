@@ -62,7 +62,7 @@ export default {
       const backgroundVariant =
           (typeof backgroundVariantResolverResult === 'string' && backgroundVariantResolverResult.trim()) ||
           this.backgroundVariant
-      if (backgroundVariant) classes.push(`bg-${backgroundVariant}`)
+      if (backgroundVariant) classes.push(`list-group-item-${backgroundVariant}`)
       if (this.textVariant) classes.push(`text-${this.textVariant}`)
       if (this.disabled) classes.push('disabled')
       return classes.join(' ')

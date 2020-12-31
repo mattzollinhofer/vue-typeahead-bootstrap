@@ -21,7 +21,7 @@ describe('VueTypeaheadBootstrapListItem.vue', () => {
   it('Renders backgroundVariant classes properly', async () => {
     wrapper.setProps({ backgroundVariant: 'light' })
     await wrapper.vm.$nextTick()
-    expect(wrapper.classes()).toEqual(expect.arrayContaining(['bg-light']))
+    expect(wrapper.classes()).toEqual(expect.arrayContaining(['list-group-item-light']))
   })
 
   it('Renders text classes properly when backgroundVariantResolver is not specified', async () => {
@@ -72,7 +72,7 @@ describe('VueTypeaheadBootstrapListItem.vue', () => {
       await wrapper.vm.$nextTick()
       // this should be adding a single class to the baseClasses, should not be appending
       expect(wrapper.classes()).toHaveLength(baseClasses.length + 1)
-      expect(wrapper.classes()).toEqual(expect.arrayContaining([`bg-${[testItems[i].data.prop]}`]))
+      expect(wrapper.classes()).toEqual(expect.arrayContaining([`list-group-item-${[testItems[i].data.prop]}`]))
     }
   })
 
@@ -83,6 +83,6 @@ describe('VueTypeaheadBootstrapListItem.vue', () => {
     wrapper.setProps({ backgroundVariant: 'light', backgroundVariantResolver: resolver1 })
     await wrapper.vm.$nextTick()
     expect(wrapper.classes()).toHaveLength(baseClasses.length + 1)
-    expect(wrapper.classes()).toEqual(expect.arrayContaining([`bg-dark`]))
+    expect(wrapper.classes()).toEqual(expect.arrayContaining([`list-group-item-dark`]))
   })
 })
