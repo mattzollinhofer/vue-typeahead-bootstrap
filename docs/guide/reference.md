@@ -43,7 +43,7 @@ You can use a [scoped slot][3] called `suggestion` to define custom content for 
 
 See the [custom suggestion slot example][4] for more info.
 
-[1]: https://getbootstrap.com/docs/4.1/utilities/colors/#background-color
+[1]: https://getbootstrap.com/docs/4.1/components/list-group/#contextual-classes
 [2]: https://getbootstrap.com/docs/4.1/utilities/colors/#color
 [3]: https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots
 [4]: #
