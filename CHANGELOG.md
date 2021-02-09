@@ -1,3 +1,6 @@
+## 2.7.3 - 9 Feb 2021
+- Fix internationalization support. Bug with the `z` characters
+
 ## 2.7.2 - 31 Dec 2020
 - Update highlight.js for security vulnerability
 - Update missing doc link
