@@ -49,6 +49,11 @@ describe('VueTypeaheadBootstrapListItem.vue', () => {
     expect(wrapper.classes()).toEqual(expect.arrayContaining([...baseClasses]))
   })
 
+  it('emits "listItemBlur" when the list items lose focus', async () => {
+    wrapper.find('.vbst-item').trigger('blur')
+    expect(wrapper.emitted('listItemBlur')).toBeTruthy()
+  })
+
   it('Renders backgroundVariantResolver classes properly', async () => {
     const baseClasses = [...wrapper.vm.baseTextClasses]
     const testItems = [

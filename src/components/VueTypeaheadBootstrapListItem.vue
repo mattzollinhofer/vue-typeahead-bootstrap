@@ -6,6 +6,7 @@
     @keydown.up.prevent
     @keyup.down="$parent.selectNextListItem($event)"
     @keyup.up="$parent.selectPreviousListItem($event)"
+    @blur="processFocusOut"
     tabindex="0"
     href="#"
     :class="textClasses"
@@ -66,6 +67,17 @@ export default {
       if (this.textVariant) classes.push(`text-${this.textVariant}`)
       if (this.disabled) classes.push('disabled')
       return classes.join(' ')
+    }
+  },
+
+  methods: {
+    processFocusOut(evt) {
+      const tgt = evt.relatedTarget
+      if (tgt && tgt.classList.contains('vbst-item')) {
+        return
+      }
+
+      this.$emit('listItemBlur');
     }
   }
 }

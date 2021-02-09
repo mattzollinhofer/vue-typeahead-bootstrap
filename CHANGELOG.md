@@ -1,3 +1,6 @@
+## 2.8.0 - 9 Feb 2021
+- Issues blur event when leaving the dropdown navigated to with arrow keys
+
 ## 2.7.3 - 9 Feb 2021
 - Fix internationalization support. Bug with the `z` characters
 
