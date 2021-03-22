@@ -88,7 +88,7 @@ describe('VueBootstrapTypeaheadList', () => {
         id: 1,
         data: 'amélie poulain',
         text: 'amélie poulain'
-      },
+      }
     ]
 
     wrapper = mount(VueTypeaheadBootstrapList, {
@@ -167,13 +167,13 @@ describe('VueBootstrapTypeaheadList', () => {
           id: 0,
           data: 'amélie',
           text: 'amélie'
-        },
+        }
       ],
       query: 'ame'
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>amé</span>lie`)
-  });
+  })
 
   it('Highlights text matches correctly when the query contains accents and the data does not', async () => {
     wrapper.setProps({
@@ -182,13 +182,13 @@ describe('VueBootstrapTypeaheadList', () => {
           id: 0,
           data: 'amelie',
           text: 'amelie'
-        },
+        }
       ],
       query: 'amé'
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>ame</span>lie`)
-  });
+  })
 
   describe('selecting items with the keyboard', () => {
     beforeEach(() => {
@@ -302,6 +302,98 @@ describe('VueBootstrapTypeaheadList', () => {
         wrapper.vm.selectPreviousListItem()
         expect(wrapper.vm.activeListItem).toBe(1)
       })
+    })
+  })
+
+  describe('Selecting on Enter Key', () => {
+    beforeEach(() => {
+      wrapper.setProps({
+        data: [
+          {
+            id: 0,
+            data: 'Canada',
+            text: 'Canada'
+          },
+          {
+            id: 1,
+            data: 'Canada1',
+            text: 'Canada1'
+          },
+          {
+            id: 2,
+            data: 'Canada2',
+            text: 'Canada2'
+          }
+        ]
+      })
+    })
+
+    it('does not return a hit with no matches', async () => {
+      wrapper.setProps({
+        query: ';lskdj'
+      })
+      await wrapper.vm.$nextTick()
+      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      await wrapper.vm.$nextTick()
+      expect(wrapper.emitted('hit')).toBeFalsy()
+    })
+
+    describe('with some matches', () => {
+      beforeEach(() => {
+        wrapper.setProps({
+          query: 'Cana'
+        })
+      })
+      it('returns the selected item when one is selected', async () => {
+        wrapper.vm.selectNextListItem()
+        wrapper.vm.selectNextListItem()
+        await wrapper.vm.$nextTick()
+        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        await wrapper.vm.$nextTick()
+        expect(wrapper.emitted().hit).toBeTruthy()
+        expect(wrapper.emitted().hit[0][0].id).toBe(1)
+      })
+
+      it('returns the first item when no item is selected', async () => {
+        await wrapper.vm.$nextTick()
+        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        await wrapper.vm.$nextTick()
+        expect(wrapper.emitted().hit).toBeTruthy()
+        expect(wrapper.emitted().hit[0][0].id).toBe(0)
+      })
+
+      it('returns the first enabled item when no item is selected', async () => {
+        wrapper.setProps({
+          disabledValues: ['Canada']
+        })
+        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        await wrapper.vm.$nextTick()
+        expect(wrapper.emitted().hit).toBeTruthy()
+        expect(wrapper.emitted().hit[0][0].id).toBe(1)
+      })
+    })
+
+    it('returns the only non-disabled item as a hit with only one enabled match', async () => {
+      wrapper.setProps({
+        disabledValues: ['Canada', 'Canada2'],
+        query: 'Cana'
+      })
+      await wrapper.vm.$nextTick()
+      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      await wrapper.vm.$nextTick()
+      expect(wrapper.emitted().hit).toBeTruthy()
+      expect(wrapper.emitted().hit[0][0].id).toBe(1)
+    })
+
+    it('does not return a hit with only disabled matches', async () => {
+      wrapper.setProps({
+        disabledValues: ['Canada', 'Canada1', 'Canada2'],
+        query: 'Cana'
+      })
+      await wrapper.vm.$nextTick()
+      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      await wrapper.vm.$nextTick()
+      expect(wrapper.emitted('hit')).toBeFalsy()
     })
   })
 

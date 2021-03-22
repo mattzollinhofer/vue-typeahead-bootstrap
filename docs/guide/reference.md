@@ -29,7 +29,7 @@
 
 Name | Description
 | --- | --- |
-hit | Triggered when an autocomplete item is selected. The entry in the input data array that was selected is returned.
+hit | Triggered when an autocomplete item is selected. The entry in the input data array that was selected is returned. If no autocomplete item is selected, the first entry matching the query is selected and returned.
 input | The component can be used with `v-model`
 keyup | Triggered when any keyup event is fired in the input. Often used for catching `keyup.enter`.
 
