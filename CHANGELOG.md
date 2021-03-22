@@ -1,3 +1,6 @@
+## 2.9.0 - 5 Apr 2021
+- Support enter selecting the first item of the list
+
 ## 2.8.0 - 9 Feb 2021
 - Issues blur event when leaving the dropdown navigated to with arrow keys
 
