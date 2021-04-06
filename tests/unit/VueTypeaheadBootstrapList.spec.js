@@ -190,6 +190,55 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>ame</span>lie`)
   })
 
+  it('Highlights text matches correctly when the query contains accents and the data does not', async () => {
+    wrapper.setProps({
+      data: [
+        {
+          id: 0,
+          data: 'amelie',
+          text: 'amelie'
+        }
+      ],
+      query: 'amé'
+    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>ame</span>lie`)
+  })
+
+  describe('providing accessible text for screen readers', () => {
+    it('renders screen reader text if provided', async () => {
+      wrapper.setProps({
+        data: [
+          {
+            id: 0,
+            data: 'Canada',
+            text: 'Canada',
+            screenReaderText: 'my screen reader text',
+          }
+        ],
+        query: 'Can'
+      })
+      await wrapper.vm.$nextTick()
+      console.log(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText)
+      expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('my screen reader text')
+    })
+
+   it("defaults the screen reader text to the item's text if not provided ", async () => {
+      wrapper.setProps({
+        data: [
+          {
+            id: 0,
+            data: 'Canada',
+            text: 'Canada'
+          },
+        ],
+        query: 'Can'
+      })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('Canada')
+    })
+  })
+
   describe('selecting items with the keyboard', () => {
     beforeEach(() => {
       wrapper.setProps({

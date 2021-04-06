@@ -8,7 +8,7 @@
       :html-text="highlight(item.text)"
       role="option"
       :aria-selected="(isListItemActive(id)) ? 'true' : 'false'"
-      :screen-reader-text="item.text"
+      :screen-reader-text="(item.screenReaderText) ? item.screenReaderText : item.text"
       :disabled="isDisabledItem(item)"
       :background-variant="backgroundVariant"
       :background-variant-resolver="backgroundVariantResolver"

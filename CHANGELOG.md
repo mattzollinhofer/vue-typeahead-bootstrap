@@ -1,3 +1,6 @@
+## 2.10.0 - 5 Apr 2021
+- Provide for customizable screen reader text
+
 ## 2.9.0 - 5 Apr 2021
 - Support 'enter' selecting the first item of the list
 
