@@ -77,7 +77,7 @@ export default {
         return
       }
 
-      this.$emit('listItemBlur');
+      this.$emit('listItemBlur')
     }
   }
 }
