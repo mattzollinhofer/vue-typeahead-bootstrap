@@ -19,6 +19,7 @@
 | maxMatches | Number | 10 | Maximum amount of list items to appear.
 | minMatchingChars | Number | 2 | Minimum matching characters in query before the typeahead list appears
 | prepend | String | | Text to be prepended to the `input-group`
+| screenReaderTextSerializer | Function | `input => input`| Function used to convert the entries in the data array into the screen reader text string. Falls back to the value of serializer.|
 | serializer | Function | `input => input`| Function used to convert the entries in the data array into a text string. |
 | showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 | showOnFocus | `Boolean` | false | Show results as soon as the input gains focus before the user has typed anything.

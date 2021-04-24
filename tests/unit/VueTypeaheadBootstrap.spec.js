@@ -36,6 +36,50 @@ describe('VueTypeaheadBootstrap', () => {
     expect(wrapper.vm.formattedData[0].text).toBe('Canada')
   })
 
+  it('Defaults the screenReaderTextSerializer to the text for arrays', () => {
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: ['Canada','CA']
+      }
+    })
+    expect(wrapper.vm.formattedData[0].screenReaderText).toBe('Canada')
+    expect(wrapper.vm.formattedData[1].screenReaderText).toBe('CA')
+  })
+
+  it('Defaults the screenReaderTextSerializer to the value of the serializer', () => {
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: [{
+          name: 'Canada',
+          code: 'CA'
+        }],
+        value: 'Can',
+        serializer: t => t.name,
+      }
+    })
+    expect(wrapper.vm.formattedData[0].id).toBe(0)
+    expect(wrapper.vm.formattedData[0].data.code).toBe('CA')
+    expect(wrapper.vm.formattedData[0].screenReaderText).toBe('Canada')
+  })
+
+  it('Uses a custom screenReaderTextSerializer properly', () => {
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: [{
+          name: 'Canada',
+          screenReaderText: 'Canada button',
+          code: 'CA'
+        }],
+        value: 'Can',
+        screenReaderTextSerializer: t => t.screenReaderText,
+        serializer: t => t.name,
+      }
+    })
+    expect(wrapper.vm.formattedData[0].id).toBe(0)
+    expect(wrapper.vm.formattedData[0].data.code).toBe('CA')
+    expect(wrapper.vm.formattedData[0].screenReaderText).toBe('Canada button')
+  })
+
   it('Uses a custom serializer properly', () => {
     wrapper = mount(VueTypeaheadBootstrap, {
       propsData: {

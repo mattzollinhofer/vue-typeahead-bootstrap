@@ -8,6 +8,7 @@
       v-model="query"
       :data="users"
       :serializer="item => item.login"
+      :screen-reader-text-serializer="item => `Github user ${item.login}`"
       highlightClass="special-highlight-class"
       @hit="selecteduser = $event"
       :minMatchingChars="3"

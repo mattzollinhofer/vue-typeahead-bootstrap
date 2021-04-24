@@ -112,6 +112,12 @@ export default {
       default: (d) => d,
       validator: d => d instanceof Function
     },
+    // Don't call this method, use _screenReaderTextSerializer()
+    // Using _screenReaderTextSerializer allows for defaulting based on .serializer
+    screenReaderTextSerializer: {
+      type: Function,
+      validator: d => d instanceof Function
+    },
     backgroundVariant: String,
     backgroundVariantResolver: {
       type: Function,
@@ -181,6 +187,7 @@ export default {
         return {
           id: i,
           data: d,
+          screenReaderText: this._screenReaderTextSerializer(d),
           text: this.serializer(d)
         }
       })
@@ -188,6 +195,17 @@ export default {
   },
 
   methods: {
+    _screenReaderTextSerializer(d){
+      if ( typeof d === "object" && !Array.isArray(d) && d !== null){
+       if (this.screenReaderTextSerializer){
+          return this.screenReaderTextSerializer(d)
+        } else {
+          return this.serializer(d)
+        }
+      } else {
+        return d
+      }
+    },
     resizeList(el) {
       const rect = el.getBoundingClientRect()
       const listStyle = this.$refs.list.$el.style
