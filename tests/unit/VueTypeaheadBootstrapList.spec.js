@@ -219,7 +219,6 @@ describe('VueBootstrapTypeaheadList', () => {
         query: 'Can'
       })
       await wrapper.vm.$nextTick()
-      console.log(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText)
       expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('my screen reader text')
     })
 

@@ -1,3 +1,6 @@
+## 2.11.1 - 23 Apr 2021
+- Improve screen reader text support
+
 ## 2.11.0 - 7 Apr 2021
 - Rebuild dist files that were missed in previous two versions (2.9.0 & 2.10.0)
 
