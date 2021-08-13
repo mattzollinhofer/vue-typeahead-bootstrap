@@ -228,7 +228,7 @@ export default {
         }
       }
 
-      return new RegExp(regexp, 'gi')
+      return new RegExp(escapeRegExp(regexp), 'gi')
     },
 
     escapedQuery() {
