@@ -1,3 +1,7 @@
+## 2.12.0 - 26 Aug 2021
+- Revert localization changes
+- Update CI build targets
+
 ## 2.11.1 - 23 Apr 2021
 - Improve screen reader text support
 
