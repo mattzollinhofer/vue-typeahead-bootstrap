@@ -207,7 +207,7 @@ export default {
   computed: {
     highlight() {
       return text => {
-        text = sanitize(text)
+        text = escapeRegExp(sanitize(text))
         if (this.query.length === 0) {
           return text
         }
