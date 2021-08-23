@@ -47,71 +47,6 @@ describe('VueBootstrapTypeaheadList', () => {
     expect(wrapper.classes()).toContain('list-group')
   })
 
-  it("Orders the results with text matches early in the hit's text first, not alphabetically", () => {
-    const data = [
-      {
-        id: 0,
-        data: 'all quiet on the western front',
-        text: 'all quiet on the western front'
-      },
-      {
-        id: 1,
-        data: 'west side story',
-        text: 'west side story'
-      },
-      {
-        id: 2,
-        data: 'western nevada',
-        text: 'western nevada'
-      }
-    ]
-
-    wrapper = mount(VueTypeaheadBootstrapList, {
-      propsData: {
-        data: data,
-        vbtUniqueId: 123456789
-      }
-    })
-
-    expect(wrapper.vm.matchedItems.length).toBe(0)
-    wrapper.setProps({
-      query: 'west'
-    })
-    expect(wrapper.vm.matchedItems.length).toBe(3)
-    let expectedOrder = ['west side story', 'western nevada', 'all quiet on the western front']
-    expect(wrapper.vm.matchedItems.map(item => item.text)).toEqual(expectedOrder)
-  })
-
-  it("Orders the results with text matches early in the hit's text first, not alphabetically (with accents)", () => {
-    const data = [
-      {
-        id: 0,
-        data: 'le destin d\'amélie poulain',
-        text: 'le destin d\'amélie poulain'
-      },
-      {
-        id: 1,
-        data: 'amélie poulain',
-        text: 'amélie poulain'
-      }
-    ]
-
-    wrapper = mount(VueTypeaheadBootstrapList, {
-      propsData: {
-        data: data,
-        vbtUniqueId: 123456789
-      }
-    })
-
-    expect(wrapper.vm.matchedItems.length).toBe(0)
-    wrapper.setProps({
-      query: 'amélie'
-    })
-    expect(wrapper.vm.matchedItems.length).toBe(2)
-    let expectedOrder = ['amélie poulain', 'le destin d\'amélie poulain']
-    expect(wrapper.vm.matchedItems.map(item => item.text)).toEqual(expectedOrder)
-  })
-
   it('Matches items when there is a query', async () => {
     expect(wrapper.vm.matchedItems.length).toBe(0)
     wrapper.setProps({
@@ -171,51 +106,6 @@ describe('VueBootstrapTypeaheadList', () => {
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada (C</span>A)`)
-  })
-
-  it('Highlights text matches correctly when the data contains accents and the query does not', async () => {
-    wrapper.setProps({
-      data: [
-        {
-          id: 0,
-          data: 'amélie',
-          text: 'amélie'
-        }
-      ],
-      query: 'ame'
-    })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>amé</span>lie`)
-  })
-
-  it('Highlights text matches correctly when the query contains accents and the data does not', async () => {
-    wrapper.setProps({
-      data: [
-        {
-          id: 0,
-          data: 'amelie',
-          text: 'amelie'
-        }
-      ],
-      query: 'amé'
-    })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>ame</span>lie`)
-  })
-
-  it('Highlights text matches correctly when the query contains accents and the data does not', async () => {
-    wrapper.setProps({
-      data: [
-        {
-          id: 0,
-          data: 'amelie',
-          text: 'amelie'
-        }
-      ],
-      query: 'amé'
-    })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>ame</span>lie`)
   })
 
   describe('providing accessible text for screen readers', () => {
