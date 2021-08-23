@@ -118,14 +118,14 @@ describe('VueBootstrapTypeaheadList', () => {
       query: 'Can'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.vm.matchedItems.length).toBe(2)
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(2)
+    expect(wrapper.vm.matchedItems.length).toBe(3)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(3)
     wrapper.setProps({
       query: 'Canada'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.vm.matchedItems.length).toBe(1)
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(1)
+    expect(wrapper.vm.matchedItems.length).toBe(2)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(2)
   })
 
   it('Matches no items when there is no query', () => {
@@ -141,7 +141,7 @@ describe('VueBootstrapTypeaheadList', () => {
     wrapper.setProps({
       query: 'can'
     })
-    expect(wrapper.vm.matchedItems.length).toBe(2)
+    expect(wrapper.vm.matchedItems.length).toBe(3)
     wrapper.setProps({
       maxMatches: 1
     })
@@ -154,7 +154,7 @@ describe('VueBootstrapTypeaheadList', () => {
       minMatchingChars: 1
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(3)
+    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(4)
   })
 
   it('Highlights text matches properly by default', async () => {
