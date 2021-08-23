@@ -25,6 +25,11 @@ describe('VueBootstrapTypeaheadList', () => {
       id: 3,
       data: 'Canadiana',
       text: 'Canadiana'
+    },
+    {
+      id: 4,
+      data: 'Canada (CA)',
+      text: 'Canada (CA)'
     }
   ]
 
@@ -158,6 +163,14 @@ describe('VueBootstrapTypeaheadList', () => {
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Cana</span>da`)
+  })
+
+  it('Highlights text matches when query text contains regex escape characters', async () => {
+    wrapper.setProps({
+      query: 'Canada (C'
+    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada (C</span>A)`)
   })
 
   it('Highlights text matches correctly when the data contains accents and the query does not', async () => {

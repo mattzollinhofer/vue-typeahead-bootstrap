@@ -207,7 +207,7 @@ export default {
   computed: {
     highlight() {
       return text => {
-        text = escapeRegExp(sanitize(text))
+        text = sanitize(text)
         if (this.query.length === 0) {
           return text
         }
@@ -228,7 +228,7 @@ export default {
         }
       }
 
-      return new RegExp(escapeRegExp(regexp), 'gi')
+      return new RegExp(regexp, 'gi')
     },
 
     escapedQuery() {
