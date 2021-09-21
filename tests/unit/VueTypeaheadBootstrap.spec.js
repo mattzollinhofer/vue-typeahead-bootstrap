@@ -172,5 +172,22 @@ describe('VueTypeaheadBootstrap', () => {
 
       expect(selectPreviousListItem).toHaveBeenCalledWith()
     })
+
+    it('Emits a blur event when the underlying input field blurs', async () => {
+      let input = wrapper.find('input')
+      await input.trigger('blur')
+      expect(wrapper.emitted().blur).toBeTruthy()
+    })
+
+    it('Does not emit a blur event if the focus shifted to the dropdown list', async () => {
+      let input = wrapper.find('input')
+      wrapper.setData({ inputValue: 'Can' })
+      await input.trigger('focus')
+
+      let listItem = wrapper.get('.vbst-item').element
+      await input.trigger('blur', {relatedTarget: listItem})
+
+      expect(wrapper.emitted().blur).toBeFalsy()
+    })
   })
 })
