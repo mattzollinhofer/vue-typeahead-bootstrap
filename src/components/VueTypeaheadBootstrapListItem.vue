@@ -7,6 +7,7 @@
     @keyup.down="$parent.selectNextListItem($event)"
     @keyup.up="$parent.selectPreviousListItem($event)"
     @blur="processFocusOut"
+    @click="$emit('isSelected')"
     tabindex="0"
     href="#"
     :class="textClasses"
