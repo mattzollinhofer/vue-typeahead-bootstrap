@@ -23,6 +23,7 @@
 | serializer | Function | `input => input`| Function used to convert the entries in the data array into a text string. |
 | showAllResults | `Boolean` | false | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".
 | showOnFocus | `Boolean` | false | Show results as soon as the input gains focus before the user has typed anything.
+| focusFirst | `Boolean` | true | Option to disable first item auto selection, so user can enter free search queries by setting false.
 | size | String | | Size of the `input-group`. Valid values: `sm`, `md`, or `lg` |
 | textVariant | String | | Text color for autocomplete result `list-group` items. [See values here.][2]
 
