@@ -237,8 +237,6 @@ export default {
       this.$emit('hit', evt.data)
 
 
-      console.log(evt,this.autoClose);
-
       if (this.autoClose) {
         this.$refs.input.blur()
         this.isFocused = false
@@ -274,11 +272,12 @@ export default {
       if (typeof this.value !== 'undefined') {
         this.$emit('input', newValue)
       }
+      else{
+        this.$emit('input', "")
+      }
     },
 
     handleEsc(inputValue) {
-
-      console.log("handleEsc",inputValue);
 
       
       if (inputValue === '') {
