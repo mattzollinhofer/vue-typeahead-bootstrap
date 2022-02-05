@@ -1,3 +1,6 @@
+# Looking for Maintainer
+Hey everyone, I haven't had the time to put into this project as I did in the past and I'm looking for a maintainer(s) to hand this off to. We've advanced the project substantially in terms of accessibility and some functionality and am looking for the next person to carry this forward. Contact me directly or open an issue if you're interested!
+
 # vue-typeahead-bootstrap
 
 A simple `list-group` based typeahead/autocomplete using Bootstrap 4 and Vue 2
