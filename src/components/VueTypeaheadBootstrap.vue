@@ -60,7 +60,9 @@
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
       :vbtUniqueId="id"
+      :focusFirst="focusFirst"
       role="listbox"
+
     >
       <!-- pass down all scoped slots -->
       <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
@@ -153,6 +155,10 @@ export default {
       type: Boolean,
       default: false
     },
+    focusFirst: {
+      type: Boolean,
+      default: true
+    },
     showAllResults: {
       type: Boolean,
       default: false
@@ -222,12 +228,14 @@ export default {
     },
 
     handleHit(evt) {
+
       if (typeof this.value !== 'undefined') {
         this.$emit('input', evt.text)
       }
 
       this.inputValue = evt.text
       this.$emit('hit', evt.data)
+
 
       if (this.autoClose) {
         this.$refs.input.blur()
@@ -264,9 +272,14 @@ export default {
       if (typeof this.value !== 'undefined') {
         this.$emit('input', newValue)
       }
+      else{
+        this.$emit('input', "")
+      }
     },
 
     handleEsc(inputValue) {
+
+      
       if (inputValue === '') {
         this.$refs.input.blur()
         this.isFocused = false

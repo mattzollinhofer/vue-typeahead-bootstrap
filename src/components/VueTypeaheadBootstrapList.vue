@@ -97,6 +97,10 @@ export default {
       type: Boolean,
       default: false
     },
+    focusFirst: {
+      type: Boolean,
+      default: true
+    },
     highlightClass: {
       type: String,
       default: 'vbt-matched-text'
@@ -179,9 +183,13 @@ export default {
       evt.preventDefault()
     },
     hitActiveListItem() {
-      if (this.activeListItem < 0) {
+      if(!this.focusFirst){
+        this.$emit('hit', "");
+      }
+      else if (this.activeListItem < 0) {
         this.selectNextListItem();
       }
+
       if (this.activeListItem >= 0) {
         this.$emit('hit', this.matchedItems[this.activeListItem])
       }
@@ -227,7 +235,9 @@ export default {
         return true
       }
 
-      this.activeListItem = this.findIndexForNextActiveItem()
+      this.activeListItem = this.findIndexForNextActiveItem();
+
+
     },
 
     selectPreviousListItem() {
