@@ -22,7 +22,7 @@ Here's the steps to getting the project to work locally:
 
 1. Clone the repo: `git clone git@github.com:mattzollinhofer/vue-typeahead-bootstrap.git`
 2. `npm ci`
-3. `vuepress dev docs`
+3. `npm run docs:dev`
 4. Open a browser and go to localhost:8080
 
 * Then to run tests: `npm run test:unit`

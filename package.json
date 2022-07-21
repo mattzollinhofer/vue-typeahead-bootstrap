@@ -58,6 +58,7 @@
     "vue-hljs": "^1.0.0",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.17",
+    "vuepress": "^1.9.7",
     "whatwg-fetch": "^2.0.4"
   },
   "directories": {
