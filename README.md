@@ -22,6 +22,8 @@ Here are some live examples, [give them a try here.](https://mattzollinhofer.git
 
 Please note that active development is done on the `main` branch. PR's are welcome! Here's the basic steps to get going.
 
+It is recommended to use Node.js 14.x.x.
+
 Here's the steps to getting the project to work locally:
 
 1.  Clone the repo: `git clone git@github.com:mattzollinhofer/vue-typeahead-bootstrap.git`
