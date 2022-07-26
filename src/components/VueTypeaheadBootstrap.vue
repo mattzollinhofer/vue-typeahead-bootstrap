@@ -195,9 +195,9 @@ export default {
   },
 
   methods: {
-    _screenReaderTextSerializer(d){
-      if ( typeof d === "object" && !Array.isArray(d) && d !== null){
-       if (this.screenReaderTextSerializer){
+    _screenReaderTextSerializer(d) {
+      if (typeof d === 'object' && !Array.isArray(d) && d !== null) {
+        if (this.screenReaderTextSerializer) {
           return this.screenReaderTextSerializer(d)
         } else {
           return this.serializer(d)

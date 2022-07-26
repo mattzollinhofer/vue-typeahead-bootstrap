@@ -37,7 +37,7 @@ describe('VueTypeaheadBootstrap', () => {
   it('Defaults the screenReaderTextSerializer to the text for arrays', () => {
     wrapper = mount(VueTypeaheadBootstrap, {
       propsData: {
-        data: ['Canada','CA']
+        data: ['Canada', 'CA']
       }
     })
     expect(wrapper.vm.formattedData[0].screenReaderText).toBe('Canada')
@@ -52,7 +52,7 @@ describe('VueTypeaheadBootstrap', () => {
           code: 'CA'
         }],
         value: 'Can',
-        serializer: t => t.name,
+        serializer: t => t.name
       }
     })
     expect(wrapper.vm.formattedData[0].id).toBe(0)
@@ -70,7 +70,7 @@ describe('VueTypeaheadBootstrap', () => {
         }],
         value: 'Can',
         screenReaderTextSerializer: t => t.screenReaderText,
-        serializer: t => t.name,
+        serializer: t => t.name
       }
     })
     expect(wrapper.vm.formattedData[0].id).toBe(0)
