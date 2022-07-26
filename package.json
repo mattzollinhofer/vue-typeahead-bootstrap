@@ -36,7 +36,7 @@
   "dependencies": {
     "lodash": "^4.17.20",
     "resize-observer-polyfill": "^1.5.0",
-    "vue": "^2.5.17"
+    "vue": "^2.7.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^5.0.8",
@@ -58,7 +58,7 @@
     "vue-hljs": "^2.0.0",
     "vue-jest": "^3.0.7",
     "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.5.17",
+    "vue-template-compiler": "^2.7.8",
     "whatwg-fetch": "^2.0.4"
   },
   "directories": {
