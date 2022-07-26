@@ -56,6 +56,7 @@
     "underscore": "^1.9.1",
     "vue-gtm": "^2.0.0",
     "vue-hljs": "^2.0.0",
+    "vue-jest": "^3.0.7",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.17",
     "whatwg-fetch": "^2.0.4"
