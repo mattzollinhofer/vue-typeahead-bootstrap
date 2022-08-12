@@ -42,7 +42,7 @@
     </div>
     <vue-typeahead-bootstrap-list
       :id="`result-list-${id}`"
-      class="vbt-autcomplete-list"
+      class="vbt-autocomplete-list"
       ref="list"
       v-show="isFocused && data.length > 0"
       :query="inputValue"
@@ -304,7 +304,7 @@ export default {
 </script>
 
 <style scoped>
-  .vbt-autcomplete-list {
+  .vbt-autocomplete-list {
     padding-top: 5px;
     position: absolute;
     max-height: 350px;
@@ -312,7 +312,7 @@ export default {
     overflow-y: auto;
     z-index: 999;
   }
-  .vbt-autcomplete-list >>> .vbt-matched-text{
+  .vbt-autocomplete-list >>> .vbt-matched-text{
     font-weight: bold;
   }
 </style>
