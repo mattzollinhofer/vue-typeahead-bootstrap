@@ -29,7 +29,7 @@
     "docs:build": "vuepress build docs",
     "docs:deploy": "./deploy.sh",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --ci --coverage",
     "test:unit:watch": "vue-cli-service test:unit --watch",
     "test:debug": "echo '\n\n\n\n*******\n*****************\nlaunch chrome://inspect!!!!!!\n****************\n******\n\n\n\n\n';sleep 5;node --inspect ./node_modules/@vue/cli-service/bin/vue-cli-service.js test:unit --runInBand --no-cache --watch"
   },
