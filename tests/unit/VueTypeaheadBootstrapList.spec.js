@@ -116,7 +116,7 @@ describe('VueBootstrapTypeaheadList', () => {
             id: 0,
             data: 'Canada',
             text: 'Canada',
-            screenReaderText: 'my screen reader text',
+            screenReaderText: 'my screen reader text'
           }
         ],
         query: 'Can'
@@ -125,14 +125,14 @@ describe('VueBootstrapTypeaheadList', () => {
       expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('my screen reader text')
     })
 
-   it("defaults the screen reader text to the item's text if not provided ", async () => {
+    it("defaults the screen reader text to the item's text if not provided ", async () => {
       wrapper.setProps({
         data: [
           {
             id: 0,
             data: 'Canada',
             text: 'Canada'
-          },
+          }
         ],
         query: 'Can'
       })
@@ -284,7 +284,7 @@ describe('VueBootstrapTypeaheadList', () => {
         query: ';lskdj'
       })
       await wrapper.vm.$nextTick()
-      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
       await wrapper.vm.$nextTick()
       expect(wrapper.emitted('hit')).toBeFalsy()
     })
@@ -299,28 +299,28 @@ describe('VueBootstrapTypeaheadList', () => {
         wrapper.vm.selectNextListItem()
         wrapper.vm.selectNextListItem()
         await wrapper.vm.$nextTick()
-        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
         await wrapper.vm.$nextTick()
         expect(wrapper.emitted().hit).toBeTruthy()
-        expect(wrapper.emitted().hit[0][0].data).toBe("Canada1")
+        expect(wrapper.emitted().hit[0][0].data).toBe('Canada1')
       })
 
       it('returns the first item when no item is selected', async () => {
         await wrapper.vm.$nextTick()
-        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
         await wrapper.vm.$nextTick()
         expect(wrapper.emitted().hit).toBeTruthy()
-        expect(wrapper.emitted().hit[0][0].data).toBe("Canada")
+        expect(wrapper.emitted().hit[0][0].data).toBe('Canada')
       })
 
       it('returns the first enabled item when no item is selected', async () => {
         wrapper.setProps({
           disabledValues: ['Canada']
         })
-        wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+        wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
         await wrapper.vm.$nextTick()
         expect(wrapper.emitted().hit).toBeTruthy()
-        expect(wrapper.emitted().hit[0][0].data).toBe("Canada1")
+        expect(wrapper.emitted().hit[0][0].data).toBe('Canada1')
       })
     })
 
@@ -330,10 +330,10 @@ describe('VueBootstrapTypeaheadList', () => {
         query: 'Cana'
       })
       await wrapper.vm.$nextTick()
-      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
       await wrapper.vm.$nextTick()
       expect(wrapper.emitted().hit).toBeTruthy()
-      expect(wrapper.emitted().hit[0][0].data).toBe("Canada1")
+      expect(wrapper.emitted().hit[0][0].data).toBe('Canada1')
     })
 
     it('does not return a hit with only disabled matches', async () => {
@@ -342,7 +342,7 @@ describe('VueBootstrapTypeaheadList', () => {
         query: 'Cana'
       })
       await wrapper.vm.$nextTick()
-      wrapper.vm.handleParentInputKeyup({keyCode: 13}) // simulate enter key
+      wrapper.vm.handleParentInputKeyup({ keyCode: 13 }) // simulate enter key
       await wrapper.vm.$nextTick()
       expect(wrapper.emitted('hit')).toBeFalsy()
     })

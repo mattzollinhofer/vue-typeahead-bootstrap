@@ -180,7 +180,7 @@ export default {
     },
     hitActiveListItem() {
       if (this.activeListItem < 0) {
-        this.selectNextListItem();
+        this.selectNextListItem()
       }
       if (this.activeListItem >= 0) {
         this.$emit('hit', this.matchedItems[this.activeListItem])
