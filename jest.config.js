@@ -23,5 +23,6 @@ module.exports = {
   testURL: 'http://localhost/',
   collectCoverageFrom: [
     'src/components/*.vue'
-  ]
+  ],
+  coverageReporters: ["json-summary"],
 }
