@@ -3,6 +3,7 @@
     <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
     <vue-typeahead-bootstrap
       :data="['Canada', 'United Kingdom', 'United States', 'Mexico']"
+      :reset-input-on-focus-out="true"
       v-model="query"
       showOnFocus
       placeholder="Choose a country"

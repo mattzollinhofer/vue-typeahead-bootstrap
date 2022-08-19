@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import VueTypeaheadBootstrap from '@/components/VueTypeaheadBootstrap.vue'
 import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
+import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem'
 
 describe('VueTypeaheadBootstrap', () => {
   let wrapper
@@ -122,6 +123,28 @@ describe('VueTypeaheadBootstrap', () => {
     wrapper.find('input').trigger('blur')
     await wrapper.vm.$nextTick()
     expect(child.isVisible()).toBe(false)
+  })
+
+  it('Reset input on focus out', async () => {
+    wrapper = mount(VueTypeaheadBootstrap, {
+      propsData: {
+        data: demoData,
+        resetInputOnFocusOut: true
+      }
+    })
+    wrapper.setData({ inputValue: 'Can' })
+
+    let child = wrapper.findComponent(VueTypeaheadBootstrapList)
+
+    wrapper.find('input').trigger('focus')
+    await wrapper.vm.$nextTick()
+    expect(child.isVisible()).toBe(true)
+
+    wrapper.find('input').trigger('blur')
+    await wrapper.vm.$nextTick()
+    expect(child.isVisible()).toBe(false)
+
+    expect(wrapper.find('input').element.value).toBe('')
   })
 
   it('Renders the list in different sizes', () => {

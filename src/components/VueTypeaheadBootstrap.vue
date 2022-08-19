@@ -29,7 +29,7 @@
         :value="inputValue"
         :disabled="disabled"
         @focus="isFocused = true"
-        @blur="handleFocusOut"
+        @blur="handleBlur"
         @input="handleInput($event.target.value)"
         @keydown.esc="handleEsc($event.target.value)"
         @keyup="$emit('keyup', $event)"
@@ -57,6 +57,7 @@
       :showAllResults="showAllResults"
       @hit="handleHit"
       @listItemBlur="handleChildBlur"
+      @isSelected="handleIsSelected"
       :highlightClass='highlightClass'
       :disabledValues="disabledValues"
       :vbtUniqueId="id"
@@ -168,7 +169,11 @@ export default {
     placeholder: String,
     prepend: String,
     append: String,
-    highlightClass: String
+    highlightClass: String,
+    resetInputOnFocusOut: {
+      type: Boolean,
+      default: false
+    }
   },
 
   computed: {
@@ -257,6 +262,21 @@ export default {
       }
     },
 
+    handleIsSelected() {
+      this.isSelected = true
+    },
+
+    handleResetInputOnFocusOut() {
+      if (this.resetInputOnFocusOut && !this.isFocused && !this.isSelected) {
+        this.inputValue = ''
+      }
+    },
+
+    handleBlur(evt) {
+      this.handleFocusOut(evt)
+      this.handleResetInputOnFocusOut()
+    },
+
     handleInput(newValue) {
       this.isFocused = true
       this.inputValue = newValue
@@ -280,7 +300,8 @@ export default {
   data() {
     return {
       isFocused: false,
-      inputValue: this.value || ''
+      inputValue: this.value || '',
+      isSelected: false
     }
   },
 
@@ -299,6 +320,10 @@ export default {
   watch: {
     value: function(val) {
       this.inputValue = val
+
+      if (val === '' || !this.data.includes(val)) {
+        this.isSelected = false
+      }
     }
   }
 }
