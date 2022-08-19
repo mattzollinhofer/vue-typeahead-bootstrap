@@ -240,19 +240,20 @@ export default {
       this.isFocused = false
     },
 
-    runFocusOut(tgt) {
+    runFocusOut(evt) {
+      const tgt = evt.relatedTarget
       if (tgt && tgt.classList.contains('vbst-item')) {
         return
       }
+      this.$emit('blur', evt)
       this.isFocused = false
     },
 
     handleFocusOut(evt) {
-      const tgt = evt.relatedTarget
       if (!!navigator.userAgent.match(/Trident.*rv:11\./) && this.ieCloseFix) {
-        setTimeout(() => { this.runFocusOut(tgt) }, 300)
+        setTimeout(() => { this.runFocusOut(evt) }, 300)
       } else {
-        this.runFocusOut(tgt)
+        this.runFocusOut(evt)
       }
     },
 
