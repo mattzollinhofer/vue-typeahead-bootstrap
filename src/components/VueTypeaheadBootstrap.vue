@@ -28,7 +28,7 @@
         :aria-label="(!ariaLabelledBy) ? placeholder : false"
         :value="inputValue"
         :disabled="disabled"
-        @focus="isFocused = true"
+        @focus="handleFocus"
         @blur="handleFocusOut"
         @input="handleInput($event.target.value)"
         @keydown.esc="handleEsc($event.target.value)"
@@ -171,6 +171,8 @@ export default {
     highlightClass: String
   },
 
+  emits: ['hit', 'input', 'keyup', 'focus', 'blur'],
+
   computed: {
     id() {
       return Math.floor(Math.random() * 100000)
@@ -255,6 +257,11 @@ export default {
       } else {
         this.runFocusOut(evt)
       }
+    },
+
+    handleFocus() {
+      this.$emit('focus')
+      this.isFocused = true
     },
 
     handleInput(newValue) {

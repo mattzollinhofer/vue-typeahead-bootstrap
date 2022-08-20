@@ -187,5 +187,11 @@ describe('VueTypeaheadBootstrap', () => {
 
       expect(wrapper.emitted().blur).toBeFalsy()
     })
+
+    it('Emits a focus event when the underlying input field receives focus', async () => {
+      let input = wrapper.find('input')
+      await input.trigger('focus')
+      expect(wrapper.emitted().focus).toBeTruthy()
+    })
   })
 })
