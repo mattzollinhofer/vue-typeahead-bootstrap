@@ -1,7 +1,7 @@
-![Nodejs workflow status](https://github.com/drikusroor/vue-bootstrap-autocomplete/actions/workflows/nodejs.yml/badge.svg)
+![Nodejs workflow status](https://github.com/drikusroor/vue-bootstrap-autocomplete/actions/workflows/nodejs.yml/badge.svg) [![npm version](https://badge.fury.io/js/@vue-bootstrap-components%2Fvue-bootstrap-autocomplete.svg)](https://badge.fury.io/js/@vue-bootstrap-components%2Fvue-bootstrap-autocomplete)
 
-# Looking for Maintainer
-Hey everyone, I haven't had the time to put into this project as I did in the past and I'm looking for a maintainer(s) to hand this off to. We've advanced the project substantially in terms of accessibility and some functionality and am looking for the next person to carry this forward. Contact me directly or open an issue if you're interested!
+# Contributors and PRs welcome
+Hello everyone. `vue-bootstrap-autocomplete` is a continuation of where [vue-typeahead-boostrap](https://github.com/mattzollinhofer/vue-typeahead-bootstrap) left off. To move this project forward again, every contribution is welcome. Fixing bugs, adding features, improving documentation, every bit helps so don't be afraid to open a pull request. I won't bite, I promise.
 
 # vue-bootstrap-autocomplete
 
@@ -30,9 +30,18 @@ Here's the steps to getting the project to work locally:
 * Then to run tests: `npm run test:unit`
 
 ## 2.13.0 Release - Migration Necessary
-If you were using a version prior to 2.13.0, you'll need to change all references of `vue-bootstrap-typeahead` or `vue-typeahead-bootstrap` to `vue-bootstrap-autocomplete` and of `VueBootstrapTypeahead` or `VueTypeaheadBootstrap` to `VueBootstrapAutocomplete.
+If you were using a version prior to 2.13.0, you'll need to change all references of `vue-bootstrap-typeahead` or `vue-typeahead-bootstrap` to `vue-bootstrap-autocomplete` and of `VueBootstrapTypeahead` or `VueTypeaheadBootstrap` to `VueBootstrapAutocomplete`.
 
-The original projects lost it's maintainers and we picked it up to keep it moving. 
+### **tl;dr**
+Replace old by new:
+| Old | New |
+| --- | --- |
+| `vue-bootstrap-typeahead` | `vue-bootstrap-autocomplete` |
+| `vue-typeahead-bootstrap` | `vue-bootstrap-autocomplete` |
+| `VueBootstrapTypeahead` | `VueBootstrapAutocomplete` |
+| `VueTypeaheadBootstrap` | `VueBootstrapAutocomplete` |
+
+The original projects lost its maintainers and we picked it up to keep it moving. 
 
 More info here if you're interested:
 * [vue-bootstrap-typeahead](https://github.com/alexurquhart/vue-bootstrap-typeahead/issues/60)
