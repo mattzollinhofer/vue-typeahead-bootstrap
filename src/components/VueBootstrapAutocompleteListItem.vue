@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'VueTypeaheadBootstrapListItem',
+  name: 'VueBootstrapAutocompleteListItem',
 
   props: {
     active: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :data="users"
@@ -16,18 +16,18 @@
           Search
         </button>
       </template>
-    </vue-typeahead-bootstrap>
+    </vue-bootstrap-autocomplete>
   </div>
 </template>
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
+  import VueBootstrapAutocomplete from "../../../src/components/VueBootstrapAutocomplete";
   import {debounce} from 'lodash'
 
   export default {
     name: "PendingAppendingExample",
-    components: {VueTypeaheadBootstrap},
+    components: {VueBootstrapAutocomplete},
     data(){
       return {
         query: '',

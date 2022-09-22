@@ -3,7 +3,7 @@
     <div class="pl-1 pb-2 pt-3">
       Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
     </div>
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :data="users"
@@ -30,18 +30,18 @@
           <i class="ml-auto fab fa-github-square fa-2x"></i>
         </div>
       </template>
-    </vue-typeahead-bootstrap>
+    </vue-bootstrap-autocomplete>
   </div>
 </template>
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
+  import VueBootstrapAutocomplete from "../../../src/components/VueBootstrapAutocomplete";
   import {debounce} from 'lodash'
 
   export default {
     name: "APIExample",
-    components: {VueTypeaheadBootstrap},
+    components: {VueBootstrapAutocomplete},
     data(){
       return {
         query: '',

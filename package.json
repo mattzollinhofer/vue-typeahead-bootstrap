@@ -1,5 +1,5 @@
 {
-  "name": "vue-typeahead-bootstrap",
+  "name": "@vue-bootstrap-components/vue-bootstrap-autocomplete",
   "version": "2.13.0",
   "private": false,
   "description": "A typeahead/autocomplete component for Vue 2 using Bootstrap 4",
@@ -11,20 +11,20 @@
     "omnisearch",
     "typeahead"
   ],
-  "homepage": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap",
+  "homepage": "https://github.com/drikusroor/vue-bootstrap-autocomplete",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap"
+    "url": "git+https://github.com/drikusroor/vue-bootstrap-autocomplete.git"
   },
   "bugs": {
-    "url": "https://github.com/mattzollinhofer/vue-typeahead-bootstrap/issues"
+    "url": "https://github.com/drikusroor/vue-bootstrap-autocomplete/issues"
   },
   "license": "MIT",
-  "author": "Matt Zollinhofer <vue.typeahead.bootstrap@gmail.com>",
-  "main": "src/components/VueTypeaheadBootstrap.vue",
+  "author": "Drikus Roor <drikusroor@gmail.com>",
+  "main": "src/components/VueBootstrapAutocomplete.vue",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name VueTypeaheadBootstrap src/components/VueTypeaheadBootstrap.vue",
+    "build": "vue-cli-service build --target lib --name VueBootstrapAutocomplete src/components/VueBootstrapAutocomplete.vue",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:deploy": "./deploy.sh",

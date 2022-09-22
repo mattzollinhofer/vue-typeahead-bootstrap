@@ -12,6 +12,6 @@ git add -A
 git commit -m 'deploy'
 
 # force push to docs repo
-git push -f git@github.com:mattzollinhofer/vue-typeahead-bootstrap-docs.git master:gh-pages
+git push -f git@github.com:drikusroor/vue-bootstrap-autocomplete-docs.git master:gh-pages
 
 cd -

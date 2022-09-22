@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       :data="['Canada', 'United Kingdom', 'United States', 'Mexico']"
       v-model="query"
       showOnFocus
@@ -12,11 +12,11 @@
 
 <script>
   import 'bootstrap-vue/dist/bootstrap-vue.css'
-  import VueTypeaheadBootstrap from "../../../src/components/VueTypeaheadBootstrap";
+  import VueBootstrapAutocomplete from "../../../src/components/VueBootstrapAutocomplete";
 
   export default {
     name: "HomePageDemo",
-    components: {VueTypeaheadBootstrap},
+    components: {VueBootstrapAutocomplete},
     data(){
       return {
         query: ''

@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vue-typeahead-bootstrap-docs/',
+  base: '/vue-bootstrap-autocomplete-docs/',
   chainWebpack(config) {
     for (const lang of ["sass", "scss"]) {
       for (const name of ["modules", "normal"]) {
@@ -24,7 +24,7 @@ module.exports = {
       }, {
         text: 'Examples', link: '/examples/examples'
       }, {
-        text: 'Github', link: 'https://github.com/mattzollinhofer/vue-typeahead-bootstrap/'
+        text: 'Github', link: 'https://github.com/drikusroor/vue-bootstrap-autocomplete/'
       }
     ],
     sidebar: [

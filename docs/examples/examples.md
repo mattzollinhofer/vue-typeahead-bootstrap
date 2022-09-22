@@ -8,7 +8,7 @@
   <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
   <div>
     Options: `Canada, United States, Mexico`,
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       :data="['Canada', 'United States', 'Mexico']"
       v-model="query"
       placeholder="Choose a country"
@@ -36,7 +36,7 @@
     <div class="pl-1 pb-2 pt-3">
       Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
     </div>
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :ieCloseFix="false"
@@ -86,7 +86,7 @@
 ```vue
 <template>
   <div>
-    <VueTypeaheadBootstrap
+    <VueBootstrapAutocomplete
       class="mb-4"
       v-model="query"
       :data="users"
@@ -102,7 +102,7 @@
           Search
         </button>
       </template>
-    </VueTypeaheadBootstrap>
+    </VueBootstrapAutocomplete>
   </div>
 </template>
 
@@ -144,7 +144,7 @@
     <div class="pl-1 pb-2 pt-3">
       Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
     </div>
-    <vue-typeahead-bootstrap
+    <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :data="users"
@@ -171,7 +171,7 @@
           <i class="ml-auto fab fa-github-square fa-2x"></i>
         </div>
       </template>
-    </vue-typeahead-bootstrap>
+    </vue-bootstrap-autocomplete>
   </div>
 </template>
 

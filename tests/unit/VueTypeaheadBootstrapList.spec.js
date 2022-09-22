@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
-import VueTypeaheadBootstrapList from '@/components/VueTypeaheadBootstrapList.vue'
-import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem.vue'
+import VueBootstrapAutocompleteList from '@/components/VueBootstrapAutocompleteList.vue'
+import VueBootstrapAutocompleteListItem from '@/components/VueBootstrapAutocompleteListItem.vue'
 
 describe('VueBootstrapTypeaheadList', () => {
   let wrapper
@@ -34,7 +34,7 @@ describe('VueBootstrapTypeaheadList', () => {
   ]
 
   beforeEach(() => {
-    wrapper = mount(VueTypeaheadBootstrapList, {
+    wrapper = mount(VueBootstrapAutocompleteList, {
       propsData: {
         data: demoData,
         vbtUniqueId: 123456789
@@ -54,13 +54,13 @@ describe('VueBootstrapTypeaheadList', () => {
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(3)
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(3)
+    expect(wrapper.findAllComponents(VueBootstrapAutocompleteListItem).length).toBe(3)
     wrapper.setProps({
       query: 'Canada'
     })
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.matchedItems.length).toBe(2)
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(2)
+    expect(wrapper.findAllComponents(VueBootstrapAutocompleteListItem).length).toBe(2)
   })
 
   it('Matches no items when there is no query', () => {
@@ -69,7 +69,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: ''
     })
     expect(wrapper.vm.matchedItems.length).toBe(0)
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(0)
+    expect(wrapper.findAllComponents(VueBootstrapAutocompleteListItem).length).toBe(0)
   })
 
   it('Limits the number of matches with maxMatches', () => {
@@ -89,7 +89,7 @@ describe('VueBootstrapTypeaheadList', () => {
       minMatchingChars: 1
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findAllComponents(VueTypeaheadBootstrapListItem).length).toBe(4)
+    expect(wrapper.findAllComponents(VueBootstrapAutocompleteListItem).length).toBe(4)
   })
 
   it('Highlights text matches properly by default', async () => {
@@ -97,7 +97,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: 'Cana'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Cana</span>da`)
+    expect(wrapper.findComponent(VueBootstrapAutocompleteListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Cana</span>da`)
   })
 
   it('Highlights text matches when query text contains regex escape characters', async () => {
@@ -105,7 +105,7 @@ describe('VueBootstrapTypeaheadList', () => {
       query: 'Canada (C'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada (C</span>A)`)
+    expect(wrapper.findComponent(VueBootstrapAutocompleteListItem).vm.htmlText).toBe(`<span class='vbt-matched-text'>Canada (C</span>A)`)
   })
 
   describe('providing accessible text for screen readers', () => {
@@ -122,7 +122,7 @@ describe('VueBootstrapTypeaheadList', () => {
         query: 'Can'
       })
       await wrapper.vm.$nextTick()
-      expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('my screen reader text')
+      expect(wrapper.findComponent(VueBootstrapAutocompleteListItem).vm.screenReaderText).toBe('my screen reader text')
     })
 
     it("defaults the screen reader text to the item's text if not provided ", async () => {
@@ -137,7 +137,7 @@ describe('VueBootstrapTypeaheadList', () => {
         query: 'Can'
       })
       await wrapper.vm.$nextTick()
-      expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.screenReaderText).toBe('Canada')
+      expect(wrapper.findComponent(VueBootstrapAutocompleteListItem).vm.screenReaderText).toBe('Canada')
     })
   })
 
@@ -354,6 +354,6 @@ describe('VueBootstrapTypeaheadList', () => {
       highlightClass: 'myStyle'
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.findComponent(VueTypeaheadBootstrapListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
+    expect(wrapper.findComponent(VueBootstrapAutocompleteListItem).vm.htmlText).toBe(`<span class='myStyle'>Canada</span>`)
   })
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="list-group shadow" ref="suggestionList">
-    <vue-typeahead-bootstrap-list-item
+    <vue-bootstrap-autocomplete-list-item
       v-for="(item, id) in matchedItems" :key="id"
       :active="isListItemActive(id)"
       :id="(isListItemActive(id)) ? `selected-option-${vbtUniqueId}` : false"
@@ -19,12 +19,12 @@
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
       </template>
-    </vue-typeahead-bootstrap-list-item>
+    </vue-bootstrap-autocomplete-list-item>
   </div>
 </template>
 
 <script>
-import VueTypeaheadBootstrapListItem from './VueTypeaheadBootstrapListItem.vue'
+import VueBootstrapAutocompleteListItem from './VueBootstrapAutocompleteListItem.vue'
 import clone from 'lodash/clone'
 import includes from 'lodash/includes'
 import isEmpty from 'lodash/isEmpty'
@@ -43,10 +43,10 @@ function escapeRegExp(str) {
 }
 
 export default {
-  name: 'VueTypeaheadBootstrapList',
+  name: 'VueBootstrapAutocompleteList',
 
   components: {
-    VueTypeaheadBootstrapListItem
+    VueBootstrapAutocompleteListItem
   },
 
   props: {

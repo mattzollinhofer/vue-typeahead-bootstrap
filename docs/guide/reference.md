@@ -49,4 +49,4 @@ See the [custom suggestion slot example][4] for more info.
 [1]: https://getbootstrap.com/docs/4.1/components/list-group/#contextual-classes
 [2]: https://getbootstrap.com/docs/4.1/utilities/colors/#color
 [3]: https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots
-[4]: https://mattzollinhofer.github.io/vue-typeahead-bootstrap-docs/examples/examples.html#custom-suggestion-slot
+[4]: https://drikusroor.github.io/vue-bootstrap-autocomplete-docs/examples/examples.html#custom-suggestion-slot

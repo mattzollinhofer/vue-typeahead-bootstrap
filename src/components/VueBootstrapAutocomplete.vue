@@ -40,7 +40,7 @@
         </slot>
       </div>
     </div>
-    <vue-typeahead-bootstrap-list
+    <vue-bootstrap-autocomplete-list
       :id="`result-list-${id}`"
       class="vbt-autocomplete-list"
       ref="list"
@@ -70,19 +70,19 @@
       <template v-if="$scopedSlots.suggestion" slot="suggestion" slot-scope="{ data, htmlText }">
         <slot name="suggestion" v-bind="{ data, htmlText }" />
       </template>-->
-    </vue-typeahead-bootstrap-list>
+    </vue-bootstrap-autocomplete-list>
   </div>
 </template>
 
 <script>
-import VueTypeaheadBootstrapList from './VueTypeaheadBootstrapList.vue'
+import VueBootstrapAutocompleteList from './VueBootstrapAutocompleteList.vue'
 import ResizeObserver from 'resize-observer-polyfill'
 
 export default {
-  name: 'VueTypeaheadBootstrap',
+  name: 'VueBootstrapAutocomplete',
 
   components: {
-    VueTypeaheadBootstrapList
+    VueBootstrapAutocompleteList
   },
 
   props: {

@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import VueTypeaheadBootstrapListItem from '@/components/VueTypeaheadBootstrapListItem.vue'
+import VueBootstrapAutocompleteListItem from '@/components/VueBootstrapAutocompleteListItem.vue'
 
-describe('VueTypeaheadBootstrapListItem.vue', () => {
+describe('VueBootstrapAutocompleteListItem.vue', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallowMount(VueTypeaheadBootstrapListItem)
+    wrapper = shallowMount(VueBootstrapAutocompleteListItem)
   })
 
   it('Mounts and renders an <a> tag', () => {
