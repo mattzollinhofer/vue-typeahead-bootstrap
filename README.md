@@ -1,7 +1,7 @@
 ![Nodejs workflow status](https://github.com/mattzollinhofer/vue-typeahead-bootstrap/actions/workflows/nodejs.yml/badge.svg)
 
-# Looking for Maintainer
-Hey everyone, I haven't had the time to put into this project as I did in the past and I'm looking for a maintainer(s) to hand this off to. We've advanced the project substantially in terms of accessibility and some functionality and am looking for the next person to carry this forward. Contact me directly or open an issue if you're interested!
+# Looking for Maintainers
+Hey everyone, I haven't had the time to put into this project as I did in the past and I'm looking for maintainer(s) to hand this off to. We've advanced the project substantially in terms of accessibility and functionality and am looking for the next people to help push this forward. Contact me directly or open an issue if you're interested!
 
 # vue-typeahead-bootstrap
 
