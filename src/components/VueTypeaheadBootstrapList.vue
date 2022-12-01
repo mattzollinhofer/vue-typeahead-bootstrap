@@ -66,6 +66,14 @@ export default {
     backgroundVariant: {
       type: String
     },
+    matcher: {
+      type: Function,
+      validator: d => d instanceof Function
+    },
+    highlighter: {
+      type: Function,
+      validator: d => d instanceof Function
+    },
     backgroundVariantResolver: {
       type: Function,
       default: (d) => null,
@@ -120,7 +128,9 @@ export default {
         if (this.query.length === 0) {
           return text
         }
-
+        if (this.highlighter) {
+          return this.highlighter(text, this.escapedQuery, this.highlightClass);
+        }
         const re = new RegExp(this.escapedQuery, 'gi')
         return text.replace(re, `<span class='${this.highlightClass}'>$&</span>`)
       }
@@ -145,12 +155,29 @@ export default {
 
       // Filter, sort, and concat
       return this.data
-        .filter(i => i.text.match(re) !== null)
+        .filter((i) => {
+          if (this.showAllResults) {
+            return true;
+          }
+
+          if (this.matcher) {
+            return this.matcher(i.text, this.escapedQuery);
+          }
+          return i.text.match(re) !== null;
+        })
         .sort((a, b) => {
           if (this.disableSort) return 0
 
-          const aIndex = a.text.indexOf(a.text.match(re)[0])
-          const bIndex = b.text.indexOf(b.text.match(re)[0])
+          if (this.matcher) {
+            var aMatch = this.matcher(a.text, this.escapedQuery);
+            var bMatch = this.matcher(b.text, this.escapedQuery);
+          }
+          else {
+            var aMatch = a.text.match(re);
+            var bMatch = b.text.match(re);
+          }
+          const aIndex = a.text.indexOf(aMatch[0])
+          const bIndex = b.text.indexOf(bMatch[0])
 
           if (aIndex < bIndex) { return -1 }
           if (aIndex > bIndex) { return 1 }
@@ -180,7 +207,7 @@ export default {
     },
     hitActiveListItem() {
       if (this.activeListItem < 0) {
-        this.selectNextListItem()
+        this.selectNextListItem();
       }
       if (this.activeListItem >= 0) {
         this.$emit('hit', this.matchedItems[this.activeListItem])

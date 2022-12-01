@@ -47,6 +47,8 @@
       v-show="isFocused && data.length > 0"
       :query="inputValue"
       :data="formattedData"
+      :matcher="matcher"
+      :highlighter="highlighter"
       :background-variant="backgroundVariant"
       :background-variant-resolver="backgroundVariantResolver"
       :text-variant="textVariant"
@@ -110,6 +112,14 @@ export default {
     serializer: {
       type: Function,
       default: (d) => d,
+      validator: d => d instanceof Function
+    },
+    matcher: {
+      type: Function,
+      validator: d => d instanceof Function
+    },
+    highlighter: {
+      type: Function,
       validator: d => d instanceof Function
     },
     // Don't call this method, use _screenReaderTextSerializer()
